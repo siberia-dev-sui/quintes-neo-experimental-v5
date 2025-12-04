@@ -1,0 +1,3159 @@
+<!DOCTYPE html>
+<!-- This site was created in Webflow. https://webflow.com --><!-- Last Published: Fri Nov 28 2025 09:37:18 GMT+0000 (Coordinated Universal Time) -->
+<html data-wf-domain="www.lgxtech.com" data-wf-page="68cd46b511527ea3afdd170b" data-wf-site="68bab3a2fb1b50c76a740e0e">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <title>Quintes — Decentralized Confidential Communication</title>
+    <meta
+        content="Quintes is a decentralized, confidential communication protocol powered by iExec. Secure Web3 email infrastructure for the future."
+        name="description" />
+    <meta content="Logix Scientific Technologies — Equipment Solutions from China" property="og:title" />
+    <meta
+        content="Engineering solutions for science, laboratory research &amp; industry. We source comprehensive equipment from China &amp; worldwide, from idea to commissioning."
+        property="og:description" />
+    <meta content="images/68d4daf62efb491465668991_open%20graph%20image.jpg" property="og:image" />
+    <meta content="Logix Scientific Technologies — Equipment Solutions from China" property="twitter:title" />
+    <meta
+        content="Engineering solutions for science, laboratory research &amp; industry. We source comprehensive equipment from China &amp; worldwide, from idea to commissioning."
+        property="twitter:description" />
+    <meta property="og:type" content="website" />
+    <meta content="summary_large_image" name="twitter:card" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="Webflow" name="generator" />
+    <link href="css/logix-webflow.webflow.shared.306923cd4.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/logix-webflow.webflow.68cd46b511527ea3afdd170b-134f1fadc.min.css" rel="stylesheet"
+        type="text/css" />
+    <style>
+        html.w-mod-js:not(.w-mod-ix3) :is(.filter, .local-presence-card-content, .video1, [data-wf-target*='["68bab3a3fb1b50c76a740e56","9e971c39-b809-e686-4dfe-95036b3b8678"]'], [data-wf-target*='["68bab3a3fb1b50c76a740e56","aa3ab396-ac0f-4ce2-105d-aee6a3cd8857"]'], .customer-card.desktop.customer-card-top, .customer-card.desktop.customer-card-bottom) {
+            visibility: hidden !important;
+        }
+    </style>
+    <script
+        type="text/javascript">!function (o, c) { var n = c.documentElement, t = " w-mod-"; n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch") }(window, document);</script>
+    <link href="images/vector-logo.svg" rel="shortcut icon" type="image/svg+xml" />
+    <link href="images/vector-logo.svg" rel="apple-touch-icon" />
+    <style>
+        /* Quintes Protocol Matrix Section */
+        #Protocol {
+            background-color: #0D1117;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .matrix-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .matrix-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .matrix-card:hover {
+            border-color: rgba(0, 255, 255, 0.3);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+        }
+
+        .matrix-card.large {
+            grid-row: span 1;
+        }
+
+        .matrix-card h3 {
+            color: #8B949E;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .matrix-value {
+            font-size: 48px;
+            font-weight: 700;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .matrix-value.cyan {
+            color: #00FFFF;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+        .matrix-value.gold {
+            color: #FFD700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .matrix-value.green {
+            color: #00FF00;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+
+        /* Scan Line Animation */
+        .scan-line {
+            position: absolute;
+            top: -10px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #00FFFF;
+            box-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .scanning .scan-line {
+            animation: scanDown 2s cubic-bezier(0.45, 0, 0.55, 1) forwards;
+        }
+
+        @keyframes scanDown {
+            0% {
+                top: -10%;
+                opacity: 1;
+            }
+
+            100% {
+                top: 110%;
+                opacity: 0;
+            }
+        }
+
+        /* Blur Reveal */
+        .blur-reveal {
+            filter: blur(10px);
+            opacity: 0;
+            transition: filter 0.5s ease, opacity 0.5s ease;
+        }
+
+        .revealed .blur-reveal {
+            filter: blur(0);
+            opacity: 1;
+        }
+
+        /* Background Lines */
+        .matrix-bg-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.2;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .matrix-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Quintes Footer - Minimalist Modern */
+        /* Minimalist Footer */
+        .quintes-footer {
+            background: linear-gradient(180deg, #080808 0%, #050505 100%);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 40px 20px 30px;
+            color: #fff;
+            font-family: 'Intertight', sans-serif;
+        }
+
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-logo {
+            height: 22px;
+            width: auto;
+            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.15));
+        }
+
+        .footer-tagline {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 13px;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 16px;
+        }
+
+        .social-icon {
+            width: 18px;
+            height: 18px;
+            opacity: 0.4;
+            transition: all 0.2s ease;
+            filter: grayscale(100%) brightness(200%);
+        }
+
+        .social-icon:hover {
+            opacity: 1;
+            transform: scale(1.15);
+        }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 25px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 12px;
+        }
+
+        .footer-bottom a {
+            color: rgba(255, 255, 255, 0.3);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-bottom a:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 25px;
+            }
+
+            .footer-brand {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px 25px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body class="body">
+    <div class="div-block-7"></div>
+    <div class="div-block-4"></div>
+    <div class="mobile-menu">
+        <div data-w-id="ca9163ba-8fc1-9e47-2514-4df0ef8632fe" class="overlay mobile-menu"></div>
+        <div class="nav-menu"><a href="#Features" class="nav-mobile-link">Features</a><a href="#Ecosystem"
+                class="nav-mobile-link">Ecosystem</a><a href="https://quintes.gitbook.io/quintes/"
+                class="nav-mobile-link">Docs</a>
+            <div class="nav-line"></div><a data-w-id="ca9163ba-8fc1-9e47-2514-4df0ef863307"
+                href="https://t.me/QuintesOfficial" class="nav-mobile-link">Community</a><a href="/cn"
+                class="nav-mobile-link"><span class="text-span-5">EN</span> / CN</a>
+        </div>
+    </div>
+    <div data-w-id="139ebf89-836b-8a04-5ebc-bf2ab3d536f7" class="menu-button"><img loading="lazy"
+            src="images/68d38e60c8b1afc086c03b96_Menu_btn.svg" alt="" class="nav-icon" /></div>
+    <div class="pop-up">
+        <div data-w-id="c7b21949-ca02-831a-9184-b37e75b9b30b" class="overlay"></div>
+        <div class="pop-up-content">
+            <h3 class="heading-3 margin-20 max-w-150">Start your project with Logix experts</h3>
+            <div class="body-text-14 gray-text-color max-w-307 margin-120">Ready to discuss your project? Our experts
+                will analyze the technical requirements and propose the optimal solution.</div>
+            <div class="form-block-2 w-form">
+                <form id="wf-form-Popup-Form" name="wf-form-Popup-Form" data-name="Popup Form" method="get" class="form"
+                    data-wf-page-id="68cd46b511527ea3afdd170b" data-wf-element-id="c7b21949-ca02-831a-9184-b37e75b9b312"
+                    data-turnstile-sitekey="0x4AAAAAAAQTptj2So4dx43e"><input class="text-field w-input" maxlength="256"
+                        name="name" data-name="Name" placeholder="Name" type="text" id="name" required="" /><input
+                        class="text-field w-input" maxlength="256" name="Email" data-name="Email" placeholder="Email"
+                        type="email" id="Email" required="" /><input class="text-field w-input" maxlength="256"
+                        name="Phone" data-name="Phone" placeholder="Phone" type="tel" id="Phone" required="" /><label
+                        class="w-checkbox checkbox-field"><input type="checkbox" name="Checkbox" id="Checkbox"
+                            data-name="Checkbox" required="" class="w-checkbox-input checkbox-3" /><span
+                            class="checkbox-label w-form-label" for="Checkbox">I agree with the <a href="/privacy"
+                                class="link-6">privacy policy</a></span></label><input type="submit"
+                        data-wait="Please wait..." class="submit-button white w-button" value="Send →" /></form>
+                <div class="success-message-3 w-form-done">
+                    <div class="text-block-5">Thank you! Your submission has been received!</div>
+                </div>
+                <div class="error-message w-form-fail">
+                    <div>Oops! Something went wrong while submitting the form.</div>
+                </div>
+            </div><img src="images/68c7ba3c876c240bfde258d6_close_small.svg" loading="lazy"
+                data-w-id="c7b21949-ca02-831a-9184-b37e75b9b321" alt="" class="close-icon" />
+        </div>
+    </div>
+
+    <div class="w-layout-vflex main-wrapper">
+        <div class="menu-code w-embed w-script">
+            <style>
+                body {
+                    margin: 0;
+                    font-family: 'Intertight', sans-serif;
+                    background-color: #121212;
+                    color: #fff;
+                    min-height: 200vh;
+                    padding: 0;
+                }
+
+                .ux_menu_container {
+                    position: fixed;
+                    top: 30px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    z-index: 1000;
+                    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                }
+
+                .ux_menu {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    /* Centered by default */
+                    height: 64px;
+                    padding: 8px 32px;
+                    gap: 0;
+                    /* No gap initially */
+
+                    border-radius: 100px;
+                    background: rgba(13, 17, 23, 0.6);
+                    backdrop-filter: blur(16px);
+                    -webkit-backdrop-filter: blur(16px);
+                    box-shadow:
+                        0 8px 32px rgba(0, 0, 0, 0.2),
+                        inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+
+                    color: #FFF;
+                    font-size: 14px;
+                    font-weight: 500;
+                    white-space: nowrap;
+                    width: auto;
+                    min-width: 400px;
+                    /* Smaller initial width */
+                    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                }
+
+                .ux_menu.expanded {
+                    justify-content: space-between;
+                    gap: 40px;
+                    min-width: 600px;
+                    /* Expanded width */
+                    background: rgba(13, 17, 23, 0.8);
+                }
+
+                .ux_menu:hover {
+                    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+                }
+
+                .ux_menu_links {
+                    display: flex;
+                    gap: 32px;
+                    align-items: center;
+                }
+
+                .ux_menu a {
+                    color: rgba(255, 255, 255, 0.7);
+                    text-decoration: none;
+                    cursor: pointer;
+                    transition: all 0.2s ease;
+                    font-size: 14px;
+                    letter-spacing: 0.3px;
+                }
+
+                .ux_menu a:hover {
+                    color: #fff;
+                    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+                }
+
+                .ux_logo_wrapper {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    opacity: 0;
+                    /* Hidden by default */
+                    width: 0;
+                    overflow: hidden;
+                    pointer-events: none;
+                    margin-right: 0;
+                    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                }
+
+                .ux_logo_wrapper.visible {
+                    opacity: 1;
+                    width: auto;
+                    /* Allow width to expand */
+                    pointer-events: auto;
+                    margin-right: auto;
+                    padding-right: 20px;
+                    /* Add spacing when visible */
+                }
+
+                .ux_logo {
+                    height: 20px;
+                    width: auto;
+                    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
+                }
+
+                /* Mobile responsiveness */
+                @media (max-width: 768px) {
+                    .ux_menu {
+                        padding: 8px 20px;
+                        min-width: auto;
+                        gap: 20px;
+                    }
+
+                    .ux_menu_links {
+                        display: none;
+                        /* Use mobile menu */
+                    }
+
+                    .ux_logo_wrapper {
+                        opacity: 1 !important;
+                        width: auto !important;
+                        margin-right: 0;
+                    }
+                }
+
+                /* CTA Button - Start Yield */
+                .cta-button {
+                    display: inline-block;
+                    margin-top: 30px;
+                    padding: 14px 36px;
+                    background: rgba(0, 255, 255, 0.1);
+                    border: 2px solid #00FFFF;
+                    border-radius: 50px;
+                    color: #00FFFF;
+                    font-family: 'Intertight', sans-serif;
+                    font-size: 16px;
+                    font-weight: 600;
+                    text-decoration: none;
+                    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3), inset 0 0 8px rgba(0, 255, 255, 0.1);
+                    transition: all 0.3s ease;
+                    text-transform: uppercase;
+                    letter-spacing: 1.5px;
+                    position: relative;
+                    z-index: 10;
+                    cursor: pointer;
+                }
+
+                .cta-button:hover {
+                    background: #00FFFF;
+                    color: #0D1117;
+                    box-shadow: 0 0 25px #00FFFF, 0 0 50px rgba(0, 255, 255, 0.5);
+                    transform: scale(1.05) translateY(-2px);
+                }
+            </style>
+
+            <div class="ux_menu_container" id="menu-container">
+                <nav class="ux_menu" id="menu">
+                    <a href="/" class="ux_logo_wrapper" id="logo">
+                        <img src="https://pub-731cbf0e109a4a5fbffae6de248ddd3a.r2.dev/Vector.svg" class="ux_logo"
+                            alt="Quintes Logo" />
+                    </a>
+
+                    <div class="ux_menu_links">
+                        <a href="#Features" class="ux_menu_item">Features</a>
+                        <a href="#Ecosystem" class="ux_menu_item">Ecosystem</a>
+                        <a href="https://quintes.gitbook.io/quintes/" target="_blank" class="ux_menu_item">Docs</a>
+                        <a href="https://t.me/QuintesOfficial" target="_blank" class="ux_menu_item">Community</a>
+                    </div>
+                </nav>
+            </div>
+
+            <script>
+                const menu = document.getElementById('menu');
+                const logo = document.getElementById('logo');
+                const menuContainer = document.getElementById('menu-container');
+                let lastScrollY = window.scrollY;
+
+                const handleScroll = () => {
+                    const currentScrollY = window.scrollY;
+                    const atTop = currentScrollY < 50; // Threshold for top state
+                    const windowHeight = window.innerHeight;
+                    const documentHeight = document.body.scrollHeight;
+                    const hideTriggerPoint = documentHeight - windowHeight - 800;
+                    const isScrollingDown = currentScrollY > lastScrollY;
+
+                    if (currentScrollY > hideTriggerPoint && isScrollingDown) {
+                        menuContainer.style.transform = 'translate(-50%, -100px)';
+                    } else {
+                        menuContainer.style.transform = 'translate(-50%, 0)';
+                    }
+
+                    if (atTop) {
+                        menu.classList.remove('expanded');
+                        logo.classList.remove('visible');
+                    } else {
+                        menu.classList.add('expanded');
+                        logo.classList.add('visible');
+                    }
+
+                    lastScrollY = currentScrollY;
+                };
+
+                window.addEventListener('scroll', handleScroll, { passive: true });
+            </script>
+        </div>
+        <div class="w-layout-vflex hero-section">
+            <section class="intro main-screen">
+                <a href="/" aria-current="page" class="logo-intro w-inline-block w--current"
+                    style="display: flex; align-items: center; gap: 10px;">
+                    <img src="images/vector-logo.svg" loading="eager" alt="Quintes Logo" />
+                    <img src="images/quintes-word.svg" loading="eager" alt="Quintes" style="height: 20px;" />
+                </a>
+                <h1 class="heading">Grow Your Crypto with Automated Proof of Collateral</h1>
+                <p class="hero-tagline" style="
+                    color: rgba(255, 255, 255, 0.5);
+                    font-size: 13px;
+                    font-weight: 400;
+                    letter-spacing: 1.5px;
+                    text-transform: uppercase;
+                    margin-top: 10px;
+                    font-family: 'Space Mono', monospace;
+                    position: relative;
+                    z-index: 10;
+                ">Overcollateralized Yield Protocol</p>
+                <div style="text-align: center; margin-bottom: 40px;">
+                    <a href="#" class="cta-button" style="
+                        display: inline-block;
+                        padding: 16px 40px;
+                        background: linear-gradient(135deg, #00FFFF 0%, #00CC99 100%);
+                        color: #0D1117;
+                        font-size: 16px;
+                        font-weight: 600;
+                        text-decoration: none;
+                        border-radius: 8px;
+                        letter-spacing: 0.5px;
+                        transition: all 0.3s ease;
+                        box-shadow: 0 4px 20px rgba(0, 255, 255, 0.3);
+                    " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 30px rgba(0, 255, 255, 0.5)';"
+                        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 20px rgba(0, 255, 255, 0.3)';">
+                        Start Earning
+                    </a>
+                </div>
+                <div class="code-embed w-embed w-script">
+                    <div class="living-lines-container">
+                        <canvas id="backgroundCanvas"></canvas>
+                    </div>
+
+                    <style>
+                        .living-lines-container {
+                            position: absolute !important;
+                            top: 0 !important;
+                            left: 0 !important;
+                            width: 100% !important;
+                            height: 100% !important;
+                            overflow: hidden !important;
+                            pointer-events: none !important;
+                            z-index: 0 !important;
+                            border-radius: inherit !important;
+                            background-color: #0D1117;
+                        }
+
+                        #backgroundCanvas {
+                            display: block !important;
+                            width: 100% !important;
+                            height: 100% !important;
+                            border-radius: inherit !important;
+                        }
+
+                        /* Стили для второго экземпляра */
+                        .living-lines-v4-container {
+                            position: absolute !important;
+                            top: 0 !important;
+                            left: 0 !important;
+                            width: 100% !important;
+                            height: 100% !important;
+                            overflow: hidden !important;
+                            pointer-events: none !important;
+                            z-index: 0 !important;
+                            border-radius: inherit !important;
+                        }
+
+                        #backgroundCanvasV4 {
+                            display: block !important;
+                            width: 100% !important;
+                            height: 100% !important;
+                            border-radius: inherit !important;
+                        }
+                    </style>
+
+                    <script>
+                        // Конфигурации для разных типов эффектов
+                        const EFFECT_CONFIGS = {
+                            perspective: {
+                                containerSelector: '.living-lines-container',
+                                canvasId: 'backgroundCanvas',
+                                lineWidth: { base: 0.8, perspective: 1.2 },
+                                headSize: { base: 1, perspective: 3 },
+                                enableMouse: true,
+                                enablePerspective: true,
+                                enableDepthOpacity: true,
+                                heightCalculation: 'perspective', // 'perspective' | 'exponential'
+                                segmentCount: { base: 8, random: 15, scale: 1.3 },
+                                showCoordinates: true,
+                                coordinateCondition: 'rightSide' // 'rightSide' | 'always'
+                            },
+                            flat: {
+                                containerSelector: '.living-lines-v4-container',
+                                canvasId: 'backgroundCanvasV4',
+                                lineWidth: { base: 1.5, perspective: 0 },
+                                headSize: { base: 2, perspective: 0 },
+                                enableMouse: false,
+                                enablePerspective: false,
+                                enableDepthOpacity: false,
+                                heightCalculation: 'exponential',
+                                segmentCount: { min: 3, scale: 1.3 },
+                                showCoordinates: true,
+                                coordinateCondition: 'always'
+                            }
+                        };
+
+                        class UnifiedSimpleLine {
+                            constructor(canvas, startX, color, config) {
+                                this.canvas = canvas;
+                                this.ctx = canvas.getContext('2d');
+                                this.config = config;
+                                this.segments = [];
+
+                                const HEIGHT_SCALE = config.segmentCount.scale;
+                                const baseSegmentLength = (15 + Math.random() * 25) * HEIGHT_SCALE;
+                                this.segmentLength = baseSegmentLength;
+
+                                // Различные способы расчета количества сегментов
+                                if (config.heightCalculation === 'perspective') {
+                                    const baseSegmentCount = (config.segmentCount.base + Math.floor(Math.random() * config.segmentCount.random)) * HEIGHT_SCALE;
+                                    this.segmentCount = Math.max(1, Math.floor(baseSegmentCount));
+                                } else { // exponential
+                                    const randomFactor = Math.random();
+                                    const exponentialHeight = Math.pow(randomFactor, 2);
+                                    const minSegments = config.segmentCount.min;
+                                    const maxAllowedHeight = canvas.height - 20;
+                                    const maxSegments = Math.floor(maxAllowedHeight / this.segmentLength);
+                                    const segmentRange = maxSegments - minSegments;
+                                    this.segmentCount = minSegments + Math.floor(segmentRange * exponentialHeight);
+                                }
+
+                                this.color = color;
+
+                                // THE SIGNAL: Steady, Upward, Strong
+                                if (this.color === '#00FFFF') {
+                                    this.segmentCount = 500; // FORCE MASSIVE HEIGHT
+                                }
+
+                                this.baseX = startX;
+                                this.baseY = config.heightCalculation === 'perspective' ? canvas.height + 50 : canvas.height - 10;
+                                this.perspectiveFactor = config.enablePerspective ? startX / canvas.width : 0;
+
+                                // Предвычисляем цвета для кэширования
+                                this.cachedColors = this.precomputeColors(color);
+
+                                // Инициализируем сегменты
+                                this.initializeSegments();
+
+                                // Создаем статический градиент один раз
+                                this.staticGradient = this.createStaticGradient();
+
+                                this.time = Math.random() * Math.PI * 2;
+                                this.speed = 0.008 + Math.random() * 0.012;
+                                this.amplitude = 10 + Math.random() * 15;
+
+                                if (this.color === '#00FFFF') {
+                                    this.speed = 0.02; // Constant steady speed
+                                    this.amplitude = 5; // Low amplitude (smooth)
+                                }
+
+                                this.displayX = 0;
+                                this.displayY = 0;
+
+                                // Флаг видимости для оптимизации
+                                this.isVisible = true;
+                                this.lastUpdateFrame = 0;
+
+                                // Предвычисляем константы
+                                this.invSegmentCount = 1 / Math.max(1, this.segmentCount);
+                                this.PI2 = Math.PI * 2;
+                                this.PI_03 = Math.PI * 0.3;
+
+                                // Кэш для Path2D
+                                this.path = new Path2D();
+
+                                // Предвычисленные таблицы тригонометрических функций (только для оптимизированного режима)
+                                if (config.enableMouse) {
+                                    this.sinTable = [];
+                                    this.cosTable = [];
+                                    this.precomputeTrigTables();
+
+                                    // Кэш для sway вычислений
+                                    this.swayCache = new Array(this.segmentCount);
+                                    this.lastSwayTime = -1;
+                                }
+
+                                // Применяем перспективу если включена
+                                if (config.enablePerspective) {
+                                    this.applyPerspective();
+                                }
+                            }
+
+                            initializeSegments() {
+                                this.segments = [];
+                                for (let i = 0; i < this.segmentCount; i++) {
+                                    this.segments.push({
+                                        x: this.baseX,
+                                        y: this.baseY - i * this.segmentLength,
+                                        vx: 0,
+                                        vy: 0
+                                    });
+                                }
+                            }
+
+                            precomputeColors(color) {
+                                const baseRgb = this.hexToRgb(color);
+                                const headRgb = this.getComplementaryColor(color);
+                                return {
+                                    base: baseRgb,
+                                    head: headRgb,
+                                    baseWithAlpha: baseRgb.replace('rgb', 'rgba').replace(')', ''),
+                                    headWithAlpha: headRgb.replace('rgb', 'rgba').replace(')', '')
+                                };
+                            }
+
+                            createStaticGradient() {
+                                // Создаем градиент от основания к вершине
+                                const lastSegment = this.segments[this.segments.length - 1] || { x: this.baseX, y: this.baseY };
+
+                                if (this.config.heightCalculation === 'exponential') {
+                                    // Для плоского режима - линейный градиент от базы к голове
+                                    const gradient = this.ctx.createLinearGradient(
+                                        this.baseX, this.baseY,
+                                        lastSegment.x, lastSegment.y
+                                    );
+                                    gradient.addColorStop(0, `${this.cachedColors.baseWithAlpha}, 0.1)`);
+                                    gradient.addColorStop(0.5, `${this.cachedColors.baseWithAlpha}, 0.8)`);
+                                    gradient.addColorStop(1, `${this.cachedColors.headWithAlpha}, 0.9)`);
+                                    return gradient;
+                                } else {
+                                    // Для перспективного режима - вертикальный градиент
+                                    const gradient = this.ctx.createLinearGradient(
+                                        this.baseX, this.baseY,
+                                        this.baseX, this.baseY - (this.segmentCount * this.segmentLength)
+                                    );
+                                    gradient.addColorStop(0, `${this.cachedColors.baseWithAlpha}, 0.1)`);
+                                    gradient.addColorStop(0.5, `${this.cachedColors.baseWithAlpha}, 0.8)`);
+                                    gradient.addColorStop(1, `${this.cachedColors.headWithAlpha}, 0.9)`);
+                                    return gradient;
+                                }
+                            }
+
+                            precomputeTrigTables() {
+                                // Создаем таблицы sin/cos для быстрого lookup (только для оптимизированного режима)
+                                const tableSize = 360;
+                                for (let i = 0; i < tableSize; i++) {
+                                    const angle = (i / tableSize) * this.PI2;
+                                    this.sinTable[i] = Math.sin(angle);
+                                    this.cosTable[i] = Math.cos(angle);
+                                }
+                            }
+
+                            // Быстрый lookup sin/cos через таблицы (только для оптимизированного режима)
+                            fastSin(angle) {
+                                if (!this.sinTable) return Math.sin(angle);
+                                const normalized = ((angle % this.PI2) + this.PI2) % this.PI2;
+                                const index = Math.floor((normalized / this.PI2) * 360) % 360;
+                                return this.sinTable[index];
+                            }
+
+                            fastCos(angle) {
+                                if (!this.cosTable) return Math.cos(angle);
+                                const normalized = ((angle % this.PI2) + this.PI2) % this.PI2;
+                                const index = Math.floor((normalized / this.PI2) * 360) % 360;
+                                return this.cosTable[index];
+                            }
+
+                            // Быстрая аппроксимация atan2 (только для оптимизированного режима)
+                            fastAtan2(y, x) {
+                                if (!this.config.enableMouse) return Math.atan2(y, x);
+
+                                if (x === 0) return y > 0 ? Math.PI / 2 : -Math.PI / 2;
+
+                                const ax = Math.abs(x);
+                                const ay = Math.abs(y);
+                                const a = Math.min(ax, ay) / Math.max(ax, ay);
+                                const s = a * a;
+                                let r = ((-0.0464964749 * s + 0.15931422) * s - 0.327622764) * s * a + a;
+
+                                if (ay > ax) r = 1.57079637 - r;
+                                if (x < 0) r = 3.14159274 - r;
+                                if (y < 0) r = -r;
+
+                                return r;
+                            }
+
+                            applyPerspective() {
+                                if (!this.config.enablePerspective) return;
+
+                                const baseHeight = this.segmentCount * this.segmentLength;
+                                const maxScreenHeight = this.canvas.height;
+                                const normalizedHeight = Math.min(baseHeight, maxScreenHeight);
+                                const heightMultiplier = 0.45 + (this.perspectiveFactor * 0.55);
+                                const finalHeight = normalizedHeight * heightMultiplier;
+                                const newCount = Math.max(1, Math.floor(finalHeight / this.segmentLength));
+
+                                // Переиспользуем существующие сегменты
+                                if (newCount < this.segments.length) {
+                                    this.segments.length = newCount;
+                                } else {
+                                    for (let i = this.segments.length; i < newCount; i++) {
+                                        this.segments.push({
+                                            x: this.baseX,
+                                            y: this.baseY - i * this.segmentLength,
+                                            vx: 0,
+                                            vy: 0
+                                        });
+                                    }
+                                }
+
+                                if (this.segmentCount !== newCount) {
+                                    this.segmentCount = newCount;
+                                    this.invSegmentCount = 1 / newCount;
+                                    this.staticGradient = this.createStaticGradient();
+
+                                    if (this.config.enableMouse) {
+                                        this.swayCache = new Array(this.segmentCount);
+                                    }
+                                }
+                            }
+
+                            checkVisibility() {
+                                if (this.segments.length === 0) {
+                                    this.isVisible = false;
+                                    return;
+                                }
+
+                                const last = this.segments[this.segments.length - 1];
+                                if (!last) {
+                                    this.isVisible = false;
+                                    return;
+                                }
+
+                                if (this.config.enableDepthOpacity) {
+                                    const depthOpacity = Math.max(0, Math.min(1, (this.canvas.height - last.y) / (this.canvas.height * 0.6)));
+                                    const perspectiveOpacity = 0.5 + (this.perspectiveFactor * 0.5);
+                                    this.isVisible = (depthOpacity * perspectiveOpacity) > 0.01;
+                                } else {
+                                    this.isVisible = true; // Для плоского режима всегда видимые
+                                }
+                            }
+
+                            update(mx, my, frameCount) {
+                                if (!this.segments || this.segments.length === 0) {
+                                    this.initializeSegments();
+                                    return;
+                                }
+
+                                // Проверяем видимость только каждые 5 кадров для оптимизированного режима
+                                if (this.config.enableMouse && frameCount % 5 === 0) {
+                                    this.checkVisibility();
+                                }
+
+                                if (!this.isVisible && this.config.enableDepthOpacity) return;
+
+                                this.time += this.speed;
+
+                                // Для оптимизированного режима используем кэш sway
+                                if (this.config.enableMouse) {
+                                    const timeKey = Math.floor(this.time * 100);
+                                    if (this.lastSwayTime !== timeKey) {
+                                        for (let i = 0; i < this.segments.length; i++) {
+                                            const iRatio = i * this.invSegmentCount;
+                                            this.swayCache[i] = this.fastSin(this.time + i * 0.4) * this.amplitude * iRatio;
+                                        }
+                                        this.lastSwayTime = timeKey;
+                                    }
+                                }
+
+                                for (let i = 0; i < this.segments.length; i++) {
+                                    const s = this.segments[i];
+
+                                    if (!s) {
+                                        console.warn('Segment is undefined at index:', i);
+                                        continue;
+                                    }
+
+                                    if (i === 0) {
+                                        s.x = this.baseX;
+                                        s.y = this.baseY;
+                                        continue;
+                                    }
+
+                                    const p = this.segments[i - 1];
+                                    if (!p) {
+                                        console.warn('Previous segment is undefined at index:', i - 1);
+                                        continue;
+                                    }
+
+                                    // Вычисляем sway
+                                    let sway = this.config.enableMouse ?
+                                        this.swayCache[i] :
+                                        Math.sin(this.time + i * 0.4) * this.amplitude * (i / this.segmentCount);
+
+                                    // ERRATIC NOISE: Add jitter to non-signal lines
+                                    if (this.color !== '#00FFFF') {
+                                        sway += (Math.random() - 0.5) * 2; // Jitter
+                                    }
+
+                                    let fx = 0, fy = 0;
+
+                                    // Обработка мыши только если включена
+                                    if (this.config.enableMouse && mx !== undefined && my !== undefined) {
+                                        mx = mx || 0;
+                                        my = my || 0;
+
+                                        const dx = s.x - mx;
+                                        const dy = s.y - my;
+                                        const distSq = dx * dx + dy * dy;
+
+                                        if (distSq < 62500) { // 250²
+                                            const d = Math.sqrt(distSq);
+                                            const force = (250 - d) / 250;
+                                            const aStr = force * 0.65;
+
+                                            const ang = this.fastAtan2(my - s.y, mx - s.x);
+                                            const orb = ang + this.PI_03 * this.fastSin(this.time * 2 + i * 0.5);
+
+                                            const cosOrb = this.fastCos(orb);
+                                            const sinOrb = this.fastSin(orb);
+
+                                            const iRatio = i * this.invSegmentCount;
+                                            fx = cosOrb * aStr * 65 * iRatio;
+                                            fy = sinOrb * aStr * 65 * iRatio;
+
+                                            if (distSq < 2500) { // 50²
+                                                const repel = (50 - d) / 50;
+                                                const rAng = this.fastAtan2(s.y - my, s.x - mx);
+                                                fx += this.fastCos(rAng) * repel * 20;
+                                                fy += this.fastSin(rAng) * repel * 20;
+                                            }
+                                        }
+                                    }
+
+                                    const tx = p.x + sway + fx;
+                                    const ty = p.y - this.segmentLength + fy;
+
+                                    s.vx += (tx - s.x) * 0.08;
+                                    s.vy += (ty - s.y) * 0.08;
+                                    s.vx *= 0.85;
+                                    s.vy *= 0.85;
+                                    s.x += s.vx * 0.15;
+                                    s.y += s.vy * 0.15;
+                                }
+
+                                const head = this.segments[this.segments.length - 1];
+                                if (head) {
+                                    this.displayX += (Math.round(head.x) - this.displayX) * 0.1;
+                                    this.displayY += (Math.round(head.y) - this.displayY) * 0.1;
+                                }
+                            }
+
+                            draw(isHovered) {
+                                if (this.segments.length < 2) return;
+                                if (!this.isVisible && this.config.enableDepthOpacity) return;
+
+                                const ctx = this.ctx;
+                                const last = this.segments[this.segments.length - 1];
+
+                                if (!last) return;
+
+                                let finalOpacity;
+
+                                if (this.config.enableDepthOpacity) {
+                                    const depthOpacity = Math.max(0, Math.min(1, (this.canvas.height - last.y) / (this.canvas.height * 0.6)));
+                                    const perspectiveOpacity = 0.5 + (this.perspectiveFactor * 0.5);
+                                    finalOpacity = depthOpacity * perspectiveOpacity;
+                                    if (finalOpacity <= 0.01) return;
+                                } else {
+                                    finalOpacity = 0.9; // Фиксированная прозрачность для плоского режима
+                                }
+
+                                // Динамическая толщина линии
+                                if (this.config.enablePerspective) {
+                                    ctx.lineWidth = this.config.lineWidth.base + (this.perspectiveFactor * this.config.lineWidth.perspective);
+                                } else {
+                                    ctx.lineWidth = this.config.lineWidth.base;
+                                }
+
+                                ctx.lineCap = 'butt';
+
+                                if (this.segments.length > 2) {
+                                    this.path = new Path2D();
+                                    this.path.moveTo(this.segments[0].x, this.segments[0].y);
+
+                                    for (let i = 1; i < this.segments.length - 1; i++) {
+                                        const c = this.segments[i];
+                                        const n = this.segments[i + 1];
+                                        if (c && n) {
+                                            this.path.quadraticCurveTo(c.x, c.y, (c.x + n.x) * 0.5, (c.y + n.y) * 0.5);
+                                        }
+                                    }
+
+                                    const prev = this.segments[this.segments.length - 2];
+                                    if (prev) {
+                                        this.path.quadraticCurveTo(prev.x, prev.y, last.x, last.y);
+                                    }
+
+                                    // Используем соответствующий градиент
+                                    // Используем соответствующий градиент
+                                    if (this.config.enableDepthOpacity) {
+                                        ctx.globalAlpha = finalOpacity;
+                                        ctx.strokeStyle = this.staticGradient;
+                                    } else {
+                                        // Для плоского режима создаем градиент в реальном времени
+                                        const baseSeg = this.segments[0];
+                                        const grad = ctx.createLinearGradient(baseSeg.x, baseSeg.y, last.x, last.y);
+
+                                        if (this.color === '#00FFFF') {
+                                            // SIGNAL: Bright, Opaque
+                                            grad.addColorStop(0, `${this.cachedColors.baseWithAlpha}, 0.2)`);
+                                            grad.addColorStop(0.5, `${this.cachedColors.baseWithAlpha}, 0.8)`);
+                                            grad.addColorStop(1, `${this.cachedColors.headWithAlpha}, 1.0)`);
+
+                                            // SPOTLIGHT EFFECT: Brighter on hover
+                                            if (isHovered) {
+                                                ctx.lineWidth = 25; // GIGANTIC on hover
+                                                ctx.shadowBlur = 60; // SUPER GLOW
+                                                ctx.shadowColor = '#00FFFF';
+                                            } else {
+                                                ctx.lineWidth = 15; // HUGE normal
+                                                ctx.shadowBlur = 40; // Strong glow
+                                                ctx.shadowColor = '#00FFFF';
+                                            }
+                                        } else {
+                                            // NOISE: Ghostly, Barely Visible
+                                            grad.addColorStop(0, `${this.cachedColors.baseWithAlpha}, 0.005)`);
+                                            grad.addColorStop(0.5, `${this.cachedColors.baseWithAlpha}, 0.01)`);
+                                            grad.addColorStop(1, `${this.cachedColors.headWithAlpha}, 0.02)`);
+                                            ctx.lineWidth = 1; // Thinner
+                                            ctx.shadowBlur = 0;
+                                        }
+
+                                        ctx.strokeStyle = grad;
+                                    }
+
+                                    ctx.stroke(this.path);
+
+                                    if (this.config.enableDepthOpacity) {
+                                        ctx.globalAlpha = 1;
+                                    }
+                                }
+
+                                // Рисуем головку
+                                const headSize = this.color === '#00FFFF' ?
+                                    (this.config.enablePerspective ? this.config.headSize.base + (this.perspectiveFactor * this.config.headSize.perspective) : this.config.headSize.base) * 1.5 :
+                                    (this.config.enablePerspective ? this.config.headSize.base + (this.perspectiveFactor * this.config.headSize.perspective) : this.config.headSize.base);
+
+                                ctx.fillStyle = `${this.cachedColors.headWithAlpha}, ${finalOpacity})`;
+                                ctx.beginPath();
+                                ctx.arc(last.x, last.y, headSize, 0, this.PI2);
+                                ctx.fill();
+
+                                // QNT Label for Signal Line - ONLY ON HOVER
+                                if (this.color === '#00FFFF' && isHovered) {
+                                    const text = "QNT APY Target: 33%";
+                                    ctx.font = '12px "Inter", sans-serif';
+                                    const metrics = ctx.measureText(text);
+                                    const padding = 8;
+                                    const boxW = metrics.width + padding * 2;
+                                    const boxH = 26;
+                                    const boxX = last.x - boxW / 2;
+                                    const boxY = last.y - 45;
+
+                                    // Tooltip Box
+                                    ctx.fillStyle = 'rgba(0, 10, 20, 0.9)'; // Deep dark box
+                                    ctx.strokeStyle = 'rgba(0, 255, 255, 0.5)';
+                                    ctx.lineWidth = 1;
+                                    ctx.beginPath();
+                                    // Fallback for roundRect if not supported
+                                    if (ctx.roundRect) {
+                                        ctx.roundRect(boxX, boxY, boxW, boxH, 4);
+                                    } else {
+                                        ctx.rect(boxX, boxY, boxW, boxH);
+                                    }
+                                    ctx.fill();
+                                    ctx.stroke();
+
+                                    // Text
+                                    ctx.fillStyle = '#00FFFF';
+                                    ctx.textAlign = 'center';
+                                    ctx.shadowColor = '#00FFFF';
+                                    ctx.shadowBlur = 5;
+                                    ctx.fillText(text, last.x, boxY + 17);
+                                    ctx.shadowBlur = 0;
+
+                                    // Connecting Line
+                                    ctx.beginPath();
+                                    ctx.moveTo(last.x, last.y - headSize - 2);
+                                    ctx.lineTo(last.x, boxY + boxH);
+                                    ctx.strokeStyle = 'rgba(0, 255, 255, 0.3)';
+                                    ctx.stroke();
+                                }
+
+                                // Coordinates DISABLED
+                                if (false && this.config.showCoordinates) {
+                                    // ...
+                                }
+                            }
+
+                            // Цветовые функции с кэшированием
+                            static colorCache = new Map();
+
+                            hexToRgb(hex) {
+                                if (UnifiedSimpleLine.colorCache.has(hex)) {
+                                    return UnifiedSimpleLine.colorCache.get(hex);
+                                }
+
+                                const r = parseInt(hex.slice(1, 3), 16);
+                                const g = parseInt(hex.slice(3, 5), 16);
+                                const b = parseInt(hex.slice(5, 7), 16);
+                                const result = `rgb(${r}, ${g}, ${b})`;
+
+                                UnifiedSimpleLine.colorCache.set(hex, result);
+                                return result;
+                            }
+
+                            getComplementaryColor(hex) {
+                                // Always return white for the tip to maintain monochrome/clean look
+                                return 'rgb(255, 255, 255)';
+                            }
+                        }
+
+                        class UnifiedLivingLinesManager {
+                            constructor() {
+                                this.effects = new Map();
+                                this.isRunning = true;
+                                this.frameCount = 0;
+                                this.lastTime = 0;
+                                this.targetFPS = 60;
+                                this.frameInterval = 1000 / this.targetFPS;
+
+                                // Глобальные настройки производительности
+                                this.performanceMode = 'auto';
+                                this.lastFPSCheck = 0;
+                                this.frameTime = 0;
+
+                                this.colors = [
+                                    '#00FFFF', // The Signal (Cyan Electric) - QNT
+                                    // The Noise (Dark Navy) - Market Volatility
+                                    '#1A2C4D', '#1A2C4D', '#1A2C4D', '#1A2C4D', '#1A2C4D',
+                                    '#1A2C4D', '#1A2C4D', '#1A2C4D', '#1A2C4D', '#1A2C4D',
+                                    '#1A2C4D', '#1A2C4D', '#1A2C4D', '#1A2C4D', '#1A2C4D',
+                                    '#1A2C4D', '#1A2C4D', '#1A2C4D', '#1A2C4D', '#1A2C4D'
+                                ];
+
+                                this.setupGlobalEvents();
+                                this.detectPerformanceMode();
+                                this.animate();
+                            }
+
+                            createEffect(configKey) {
+                                const config = EFFECT_CONFIGS[configKey];
+                                if (!config) {
+                                    console.error(`Unknown config: ${configKey}`);
+                                    return null;
+                                }
+
+                                const container = document.querySelector(config.containerSelector);
+                                const canvas = container ? container.querySelector(`#${config.canvasId}`) : null;
+
+                                if (!canvas) {
+                                    console.warn(`Canvas not found for config: ${configKey}`);
+                                    return null;
+                                }
+
+                                const effect = {
+                                    config,
+                                    container,
+                                    canvas,
+                                    ctx: canvas.getContext('2d'),
+                                    lines: [],
+                                    mouseX: 0,
+                                    mouseY: 0,
+                                    isVisible: false,
+                                    isPaused: false,
+                                    visibilityRatio: 0,
+                                    observer: null
+                                };
+
+                                this.setupEffect(effect);
+                                this.effects.set(configKey, effect);
+
+                                console.log(`Created effect: ${configKey}`);
+                                return effect;
+                            }
+
+                            setupEffect(effect) {
+                                this.resizeEffect(effect);
+                                this.createLines(effect);
+                                this.setupIntersectionObserver(effect);
+                                this.setupEffectEvents(effect);
+                            }
+
+                            resizeEffect(effect) {
+                                const rect = effect.container.getBoundingClientRect();
+                                effect.canvas.width = rect.width;
+                                effect.canvas.height = rect.height;
+                                effect.w = rect.width;
+                                effect.h = rect.height;
+                            }
+
+                            createLines(effect) {
+                                effect.lines = [];
+                                const baseCount = Math.floor(effect.w / 6);
+                                const minLinesForLowPerf = Math.floor(50 * 1.5);
+                                const count = this.targetFPS === 30 ? Math.min(baseCount, minLinesForLowPerf) : baseCount;
+
+                                const signalIndex = Math.floor(count * 0.7); // Move to the right (70%)
+
+                                for (let i = 0; i < count; i++) {
+                                    const x = (effect.w / count) * i + Math.random() * 20 - 10;
+
+                                    // FORCE LOGIC: Only one line is Cyan (#00FFFF), rest are Navy (#1A2C4D)
+                                    let color;
+                                    if (i === signalIndex) {
+                                        color = '#00FFFF'; // The Signal
+                                    } else {
+                                        color = '#1A2C4D'; // The Noise
+                                    }
+
+                                    const line = new UnifiedSimpleLine(effect.canvas, x, color, effect.config);
+                                    effect.lines.push(line);
+                                }
+
+                                console.log(`Created ${count} lines for ${effect.config.containerSelector}`);
+                            }
+
+                            setupIntersectionObserver(effect) {
+                                if (!window.IntersectionObserver) {
+                                    console.warn('IntersectionObserver not supported');
+                                    effect.isVisible = true;
+                                    return;
+                                }
+
+                                effect.observer = new IntersectionObserver((entries) => {
+                                    entries.forEach(entry => {
+                                        effect.visibilityRatio = entry.intersectionRatio;
+                                        effect.isVisible = entry.isIntersecting;
+
+                                        if (entry.isIntersecting) {
+                                            if (effect.visibilityRatio > 0.75) {
+                                                this.targetFPS = 60;
+                                                effect.isPaused = false;
+                                            } else if (effect.visibilityRatio > 0.25) {
+                                                this.targetFPS = 30;
+                                                effect.isPaused = false;
+                                            } else {
+                                                this.targetFPS = 15;
+                                                effect.isPaused = false;
+                                            }
+
+                                            this.frameInterval = 1000 / this.targetFPS;
+                                            console.log(`${effect.config.containerSelector} visibility: ${Math.round(effect.visibilityRatio * 100)}%, FPS: ${this.targetFPS}`);
+                                        } else {
+                                            effect.isPaused = true;
+                                            console.log(`${effect.config.containerSelector} not visible - paused`);
+                                        }
+                                    });
+                                }, {
+                                    root: null,
+                                    rootMargin: '50px',
+                                    threshold: [0, 0.25, 0.5, 0.75, 1]
+                                });
+
+                                effect.observer.observe(effect.container);
+                            }
+
+                            setupEffectEvents(effect) {
+                                if (window.ResizeObserver) {
+                                    effect.resizeObserver = new ResizeObserver(() => {
+                                        this.resizeEffect(effect);
+                                        this.createLines(effect);
+                                    });
+                                    effect.resizeObserver.observe(effect.container);
+                                }
+
+                                // События мыши только для эффектов с включенной мышью
+                                if (effect.config.enableMouse) {
+                                    const throttledMouseHandler = this.throttle((e) => {
+                                        if (!effect.isVisible || effect.isPaused) return;
+
+                                        const rect = effect.container.getBoundingClientRect();
+                                        let clientX, clientY;
+
+                                        if (e.touches && e.touches.length) {
+                                            clientX = e.touches[0].clientX;
+                                            clientY = e.touches[0].clientY;
+                                        } else {
+                                            clientX = e.clientX;
+                                            clientY = e.clientY;
+                                        }
+
+                                        effect.mouseX = clientX - rect.left;
+                                        effect.mouseY = clientY - rect.top;
+
+                                        // FIX: Calculate hover state manually since pointer-events: none is used
+                                        effect.isHovered = (
+                                            clientX >= rect.left &&
+                                            clientX <= rect.right &&
+                                            clientY >= rect.top &&
+                                            clientY <= rect.bottom
+                                        );
+                                    }, 16);
+
+                                    document.addEventListener('mousemove', throttledMouseHandler, { passive: true });
+                                    document.addEventListener('touchmove', throttledMouseHandler, { passive: true });
+                                    effect.mouseHandler = throttledMouseHandler;
+
+                                    // Removed direct listeners on container due to pointer-events: none
+                                }
+                            }
+
+                            setupGlobalEvents() {
+                                // Глобальная пауза при потере фокуса
+                                document.addEventListener('visibilitychange', () => {
+                                    this.isRunning = !document.hidden;
+                                    if (document.hidden) {
+                                        console.log('Page hidden - all animations paused');
+                                    } else {
+                                        console.log('Page visible - animations resumed');
+                                    }
+                                });
+                            }
+
+                            detectPerformanceMode() {
+                                const canvas = document.createElement('canvas');
+                                const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+
+                                if (gl) {
+                                    const renderer = gl.getParameter(gl.RENDERER);
+                                    if (renderer && renderer.includes('Intel')) {
+                                        this.targetFPS = 30;
+                                        this.frameInterval = 1000 / this.targetFPS;
+                                    }
+                                }
+
+                                if (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                                    this.targetFPS = 30;
+                                    this.frameInterval = 1000 / this.targetFPS;
+                                }
+                            }
+
+                            throttle(func, delay) {
+                                let timeoutId;
+                                let lastExecTime = 0;
+                                return function (...args) {
+                                    const currentTime = Date.now();
+
+                                    if (currentTime - lastExecTime > delay) {
+                                        func.apply(this, args);
+                                        lastExecTime = currentTime;
+                                    } else {
+                                        clearTimeout(timeoutId);
+                                        timeoutId = setTimeout(() => {
+                                            func.apply(this, args);
+                                            lastExecTime = Date.now();
+                                        }, delay - (currentTime - lastExecTime));
+                                    }
+                                };
+                            }
+
+                            animate(currentTime = 0) {
+                                const deltaTime = currentTime - this.lastTime;
+
+                                if (this.isRunning && deltaTime > this.frameInterval) {
+                                    const frameStart = performance.now();
+
+                                    // Обрабатываем все активные эффекты
+                                    for (const [key, effect] of this.effects) {
+                                        if (!effect.isVisible || effect.isPaused) continue;
+
+                                        // Очистка канваса
+                                        effect.ctx.fillStyle = '#0D1117';
+                                        effect.ctx.fillRect(0, 0, effect.w, effect.h);
+
+                                        // Обновляем и рисуем линии
+                                        for (const line of effect.lines) {
+                                            if (line && typeof line.update === 'function' && typeof line.draw === 'function') {
+                                                // Передаем координаты мыши только если мышь включена
+                                                const mx = effect.config.enableMouse ? effect.mouseX : undefined;
+                                                const my = effect.config.enableMouse ? effect.mouseY : undefined;
+
+                                                line.update(mx, my, this.frameCount);
+                                                line.update(mx, my, this.frameCount);
+                                                line.draw(effect.isHovered);
+                                            }
+                                        }
+                                    }
+
+                                    this.frameCount++;
+                                    this.lastTime = currentTime - (deltaTime % this.frameInterval);
+
+                                    // Мониторинг производительности
+                                    this.frameTime = performance.now() - frameStart;
+                                    if (currentTime - this.lastFPSCheck > 1000) {
+                                        this.adaptPerformance();
+                                        this.lastFPSCheck = currentTime;
+                                    }
+                                }
+
+                                requestAnimationFrame((time) => this.animate(time));
+                            }
+
+                            adaptPerformance() {
+                                // Адаптивная производительность только если есть видимые эффекты
+                                const hasVisibleEffects = Array.from(this.effects.values()).some(effect => effect.isVisible && !effect.isPaused);
+                                if (!hasVisibleEffects) return;
+
+                                if (this.frameTime > 20) {
+                                    if (this.targetFPS > 30) {
+                                        this.targetFPS = 30;
+                                        this.frameInterval = 1000 / this.targetFPS;
+                                        console.log('Global performance adapted: reduced to 30 FPS');
+                                    }
+                                } else if (this.frameTime < 10 && this.targetFPS === 30) {
+                                    this.targetFPS = 60;
+                                    this.frameInterval = 1000 / this.targetFPS;
+                                    console.log('Global performance adapted: increased to 60 FPS');
+                                }
+                            }
+
+                            // Публичные методы для управления
+                            getEffect(configKey) {
+                                return this.effects.get(configKey);
+                            }
+
+                            destroyEffect(configKey) {
+                                const effect = this.effects.get(configKey);
+                                if (!effect) return;
+
+                                if (effect.observer) {
+                                    effect.observer.disconnect();
+                                }
+
+                                if (effect.resizeObserver) {
+                                    effect.resizeObserver.disconnect();
+                                }
+
+                                if (effect.mouseHandler) {
+                                    document.removeEventListener('mousemove', effect.mouseHandler);
+                                    document.removeEventListener('touchmove', effect.mouseHandler);
+                                }
+
+                                this.effects.delete(configKey);
+                                console.log(`Destroyed effect: ${configKey}`);
+                            }
+
+                            destroyAll() {
+                                for (const key of this.effects.keys()) {
+                                    this.destroyEffect(key);
+                                }
+                                this.isRunning = false;
+                                console.log('All effects destroyed');
+                            }
+
+                            getPerformanceStats() {
+                                const effectStats = {};
+                                for (const [key, effect] of this.effects) {
+                                    effectStats[key] = {
+                                        isVisible: effect.isVisible,
+                                        isPaused: effect.isPaused,
+                                        visibilityRatio: effect.visibilityRatio,
+                                        linesCount: effect.lines.length,
+                                        enableMouse: effect.config.enableMouse
+                                    };
+                                }
+
+                                return {
+                                    globalFPS: this.targetFPS,
+                                    frameTime: this.frameTime,
+                                    frameCount: this.frameCount,
+                                    isRunning: this.isRunning,
+                                    effectsCount: this.effects.size,
+                                    effects: effectStats
+                                };
+                            }
+
+                            setVisibility(configKey, visible) {
+                                const effect = this.effects.get(configKey);
+                                if (effect) {
+                                    effect.isVisible = visible;
+                                    effect.isPaused = !visible;
+                                    console.log(`Manual visibility for ${configKey} set to: ${visible}`);
+                                }
+                            }
+
+                            toggleMouse(configKey, enabled) {
+                                const effect = this.effects.get(configKey);
+                                if (effect) {
+                                    effect.config.enableMouse = enabled;
+                                    console.log(`Mouse interaction for ${configKey} set to: ${enabled}`);
+                                }
+                            }
+                        }
+
+                        // Глобальный менеджер и функции инициализации
+                        let globalManager = null;
+
+                        function initUnifiedLivingLines() {
+                            // Проверяем, не создан ли уже менеджер
+                            if (globalManager) {
+                                console.log('Unified Living Lines Manager already exists');
+                                return globalManager;
+                            }
+
+                            // Создаем глобальный менеджер
+                            globalManager = new UnifiedLivingLinesManager();
+
+                            // Автоматически создаем эффекты для найденных контейнеров
+                            for (const [configKey, config] of Object.entries(EFFECT_CONFIGS)) {
+                                const container = document.querySelector(config.containerSelector);
+                                if (container) {
+                                    globalManager.createEffect(configKey);
+                                }
+                            }
+
+                            // Добавляем глобальные методы для отладки
+                            window.getLivingLinesStats = () => {
+                                return globalManager ? globalManager.getPerformanceStats() : { error: 'Manager not initialized' };
+                            };
+
+                            window.toggleLivingLines = (configKey, visible) => {
+                                if (globalManager) {
+                                    globalManager.setVisibility(configKey, visible);
+                                }
+                            };
+
+                            window.toggleLivingLinesMouse = (configKey, enabled) => {
+                                if (globalManager) {
+                                    globalManager.toggleMouse(configKey, enabled);
+                                }
+                            };
+
+                            window.createLivingLinesEffect = (configKey) => {
+                                if (globalManager) {
+                                    return globalManager.createEffect(configKey);
+                                }
+                            };
+
+                            window.destroyLivingLinesEffect = (configKey) => {
+                                if (globalManager) {
+                                    globalManager.destroyEffect(configKey);
+                                }
+                            };
+
+                            console.log('Unified Living Lines Manager initialized');
+                            return globalManager;
+                        }
+
+                        // Инициализация после загрузки DOM
+                        if (document.readyState === 'loading') {
+                            document.addEventListener('DOMContentLoaded', initUnifiedLivingLines);
+                        } else {
+                            initUnifiedLivingLines();
+                        }
+
+                        // Cleanup при выгрузке страницы
+                        window.addEventListener('beforeunload', () => {
+                            if (globalManager && typeof globalManager.destroyAll === 'function') {
+                                globalManager.destroyAll();
+                            }
+                        });
+                    </script>
+                </div><a href="/" aria-current="page" class="logo-intro w-inline-block w--current"><img
+                        src="images/quintes-logo.svg" loading="eager" alt="" /></a>
+                <p class="hero-description" style="
+                    max-width: 500px;
+                    color: rgba(255, 255, 255, 0.7);
+                    font-size: 16px;
+                    font-weight: 300;
+                    line-height: 1.7;
+                    letter-spacing: 0.3px;
+                    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+                    font-family: 'Inter', 'Intertight', -apple-system, BlinkMacSystemFont, sans-serif;
+                ">Secure, private, and verifiable Web3 email infrastructure powered by iExec. Join the whitelist for
+                    early access to the future of communication.</p>
+            </section>
+        </div>
+        <section class="running-line">
+            <div class="body-text-14 gray-text-color">Established partnerships with global leaders in scientific and
+                laboratory equipment</div>
+            <div id="w-node-_1d0f5ea3-0ee8-c070-6089-e81bcfa5a766-afdd170b" class="running-line-code w-embed">
+                <style>
+                    .marquee-container-wrapper {
+                        display: flex;
+                        align-items: center;
+                        height: 80px;
+                        width: 100%;
+                        max-width: 10800px;
+                        margin: 0 auto;
+                        margin-bottom: 0px;
+                        overflow: visible;
+                        position: relative;
+                        clip-path: inset(-20px 0);
+                    }
+
+
+                    .marquee-gradient-overlay {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: linear-gradient(90deg,
+                                #F0F0F0 0%,
+                                rgba(240, 240, 240, 0.00) 13.94%,
+                                rgba(240, 240, 240, 0.00) 78.85%,
+                                #F0F0F0 100%);
+                        pointer-events: none;
+                        z-index: 3;
+                    }
+
+
+                    .marquee-logos-track {
+                        display: flex;
+                        gap: 76px;
+                        animation: marqueeScroll 35s linear infinite;
+                        align-items: center;
+                        z-index: 1;
+                        white-space: nowrap;
+                    }
+
+
+                    .marquee-logo-item {
+                        height: 50px;
+                        width: auto;
+                        margin-right: 60px;
+                        object-fit: contain;
+                        filter: brightness(0);
+                        display: block;
+                        flex-shrink: 0;
+                    }
+
+
+                    @keyframes marqueeScroll {
+                        0% {
+                            transform: translateX(0);
+                        }
+
+                        100% {
+                            transform: translateX(-100%);
+                        }
+                    }
+                </style>
+
+                <body>
+
+                    <div class="marquee-container-wrapper">
+                        <div class="marquee-logos-track">
+
+                            <img class="marquee-logo-item" src="images/binance.svg" alt="Binance" />
+                            <img class="marquee-logo-item"
+                                src="https://pub-731cbf0e109a4a5fbffae6de248ddd3a.r2.dev/okx-1.svg" alt="OKX" />
+                            <img class="marquee-logo-item"
+                                src="https://pub-731cbf0e109a4a5fbffae6de248ddd3a.r2.dev/Gemini_Generated_Image_five1cfive1cfive.svg"
+                                alt="Arbitrum" style="transform: scale(1.3);" />
+                            <img class="marquee-logo-item" src="images/kings-college.svg" alt="King's College London" />
+                            <img class="marquee-logo-item" src="images/metamask.svg" alt="Metamask" />
+                            <img class="marquee-logo-item" src="images/chainlink.svg" alt="Chainlink" />
+                            <img class="marquee-logo-item" src="images/consensys.svg" alt="Consensys" />
+                            <img class="marquee-logo-item" src="images/algorand.svg" alt="Algorand" />
+                            <img class="marquee-logo-item" src="images/morgan-stanley.svg" alt="Morgan Stanley" />
+                            <img class="marquee-logo-item" src="images/ucl.svg" alt="UCL" />
+                            <img class="marquee-logo-item"
+                                src="https://pub-731cbf0e109a4a5fbffae6de248ddd3a.r2.dev/iexec.svg" alt="iExec"
+                                style="filter: brightness(0); transform: scale(1.33);" />
+
+                            <img class="marquee-logo-item" src="images/binance.svg" alt="Binance" />
+                            <img class="marquee-logo-item"
+                                src="https://pub-731cbf0e109a4a5fbffae6de248ddd3a.r2.dev/okx-1.svg" alt="OKX" />
+                            <img class="marquee-logo-item"
+                                src="https://pub-731cbf0e109a4a5fbffae6de248ddd3a.r2.dev/Gemini_Generated_Image_five1cfive1cfive.svg"
+                                alt="Arbitrum" style="transform: scale(1.3);" />
+                            <img class="marquee-logo-item" src="images/kings-college.svg" alt="King's College London" />
+                            <img class="marquee-logo-item" src="images/metamask.svg" alt="Metamask" />
+                            <img class="marquee-logo-item" src="images/chainlink.svg" alt="Chainlink" />
+                            <img class="marquee-logo-item" src="images/consensys.svg" alt="Consensys" />
+                            <img class="marquee-logo-item" src="images/algorand.svg" alt="Algorand" />
+                            <img class="marquee-logo-item" src="images/morgan-stanley.svg" alt="Morgan Stanley" />
+                            <img class="marquee-logo-item" src="images/ucl.svg" alt="UCL" />
+                            <img class="marquee-logo-item"
+                                src="https://pub-731cbf0e109a4a5fbffae6de248ddd3a.r2.dev/iexec.svg" alt="iExec"
+                                style="filter: brightness(0); transform: scale(1.33);" />
+
+                            <img class="marquee-logo-item" src="images/binance.svg" alt="Binance" />
+                            <img class="marquee-logo-item"
+                                src="https://pub-731cbf0e109a4a5fbffae6de248ddd3a.r2.dev/okx-1.svg" alt="OKX" />
+                            <img class="marquee-logo-item"
+                                src="https://pub-731cbf0e109a4a5fbffae6de248ddd3a.r2.dev/Gemini_Generated_Image_five1cfive1cfive.svg"
+                                alt="Arbitrum" style="transform: scale(1.3);" />
+                            <img class="marquee-logo-item" src="images/kings-college.svg" alt="King's College London" />
+                            <img class="marquee-logo-item" src="images/metamask.svg" alt="Metamask" />
+                            <img class="marquee-logo-item" src="images/chainlink.svg" alt="Chainlink" />
+                            <img class="marquee-logo-item" src="images/consensys.svg" alt="Consensys" />
+                            <img class="marquee-logo-item" src="images/algorand.svg" alt="Algorand" />
+                            <img class="marquee-logo-item" src="images/morgan-stanley.svg" alt="Morgan Stanley" />
+                            <img class="marquee-logo-item" src="images/ucl.svg" alt="UCL" />
+                            <img class="marquee-logo-item"
+                                src="https://pub-731cbf0e109a4a5fbffae6de248ddd3a.r2.dev/iexec.svg" alt="iExec"
+                                style="filter: brightness(0); transform: scale(1.33);" />
+                        </div>
+
+
+                        <div class="marquee-gradient-overlay"></div>
+                    </div>
+            </div>
+        </section>
+        <section id="Clients" class="section">
+            <div class="head-tag">
+                <div class="tag">
+                    <div class="tag-text white-text-color">Trusted Infrastructure</div>
+                </div>
+                <h2 id="Features" class="heading-2 black-text-color gradient-heading blur-in">Key Pillars of Quintes
+                    Protocol</h2>
+            </div>
+            <section class="ustomers-block">
+                <div id="w-node-_1198cc20-e74a-8833-3f38-dda2470df014-afdd170b"
+                    data-w-id="1198cc20-e74a-8833-3f38-dda2470df014" class="w-layout-vflex customer-card">
+                    <section class="card-head">
+                        <h3 class="heading-3 black-text-color">Institutional Custody</h3><img
+                            src="images/68c3c69b6b9e8447416ed00d_Icon-1.svg" loading="eager" width="30" height="30"
+                            alt="" class="abstract-icon" />
+                    </section>
+                    <div class="body-text-14 gray-text-color customers">Assets secured by Fireblocks and Ceffu, using
+                        military-grade MPC technology.</div>
+                </div>
+                <div data-w-id="7599b2a6-d750-9f57-5bca-0d5ad4285865" class="w-layout-vflex customer-card">
+                    <section class="card-head">
+                        <h3 class="heading-3"><strong class="heading-3 black-text-color">Shariah Compliance</strong>
+                        </h3><img src="images/68c3c69b6e05c5b121db6f8f_Icon-2.svg" loading="eager" width="30"
+                            height="30" alt="" class="abstract-icon" />
+                    </section>
+                    <div class="body-text-14 gray-text-color customers">Strategies 100% free of Riba (interest) and
+                        Gharar (uncertainty), audited by ethical experts.</div>
+                </div>
+                <div data-w-id="618c256e-1a13-104e-6725-57692f2f55b1" class="w-layout-vflex customer-card">
+                    <section class="card-head">
+                        <h3 class="heading-3 black-text-color">Decentralized Oracles</h3><img
+                            src="images/68c3c69b53e3d5c903b5ec06_Icon-3.svg" loading="eager" width="30" height="30"
+                            alt="" class="abstract-icon" />
+                    </section>
+                    <div class="body-text-14 gray-text-color customers">Real-time prices secured by the Chainlink
+                        network to prevent manipulation.<br />
+                    </div>
+                </div>
+                <div class="w-layout-vflex customer-card desktop customer-card-top">
+                    <section class="card-head">
+                        <h3 class="heading-3"><strong class="heading-3 black-text-color">Smart Contract Audit</strong>
+                        </h3><img src="images/68c3c69b756142b958f50423_Icon-4.svg" loading="eager" width="30"
+                            height="30" alt="" class="abstract-icon" />
+                    </section>
+                    <div class="body-text-14 gray-text-color customers">Code verified and stress-tested to ensure 200%
+                        solvency.<br /></div>
+                </div>
+                <div data-w-id="c5ef6b77-f0c6-39d9-4ad0-9bca3b41a2f6" class="w-layout-vflex customer-card mobile">
+                    <section class="card-head">
+                        <h3 class="heading-3"><strong class="heading-3 black-text-color">Smart Contract Audit</strong>
+                        </h3><img src="images/68c3c69b756142b958f50423_Icon-4.svg" loading="lazy" width="30" height="30"
+                            alt="" class="abstract-icon" />
+                    </section>
+                    <div class="body-text-14 gray-text-color">Code verified and stress-tested to ensure 200%
+                        solvency.<br /></div>
+                </div>
+                <div data-w-id="fbf4f4a0-127e-f4a1-61dd-4680781a8d87" class="w-layout-vflex customer-card">
+                    <section class="card-head">
+                        <h3 class="heading-3"><strong class="heading-3 black-text-color">Proof of Collateral
+                                (APoC)</strong>
+                        </h3><img src="images/68c3c69b560d2e53061b0b19_Icon-5.svg" loading="eager" width="30"
+                            height="30" alt="" class="abstract-icon" />
+                    </section>
+                    <div class="body-text-14 gray-text-color customers">On-chain verification that every $1 of QNT has
+                        $2 of backing always.<br /></div>
+                </div>
+                <div class="w-layout-vflex customer-card desktop customer-card-bottom">
+                    <section class="card-head">
+                        <h3 class="heading-3"><strong class="heading-3 black-text-color">Backup Treasury</strong></h3>
+                        <img src="images/68c3c69bf102bc44f338ee3d_Icon-6.svg" loading="eager" width="30" height="30"
+                            alt="" class="abstract-icon" />
+                    </section>
+                    <div class="body-text-14 gray-text-color customers">Emergency reserve fund to guarantee immediate
+                        redemption in any market condition.<br /></div>
+                </div>
+                <div data-w-id="3c26e024-3b7a-52b5-8ef9-77df4a6f2772" class="w-layout-vflex customer-card mobile">
+                    <section class="card-head">
+                        <h3 class="heading-3"><strong class="heading-3 black-text-color">Backup Treasury</strong></h3>
+                        <img src="images/68c3c69bf102bc44f338ee3d_Icon-6.svg" loading="lazy" width="30" height="30"
+                            alt="" class="abstract-icon" />
+                    </section>
+                    <div class="body-text-14 gray-text-color">Emergency reserve fund to guarantee immediate redemption
+                        in any market condition.<br /></div>
+                </div>
+                <div data-w-id="bf293ce2-1b3c-f5ed-d48a-511195856a3f" class="w-layout-vflex customer-card">
+                    <section class="card-head">
+                        <h3 class="heading-3"><strong class="heading-3 black-text-color">Delta Neutral Trading</strong>
+                        </h3><img src="images/68c3c69b76e13848f3426f48_Icon-7.svg" loading="eager" width="30"
+                            height="30" alt="" class="abstract-icon" />
+                    </section>
+                    <div class="body-text-14 gray-text-color customers">We generate yield regardless of market direction
+                        through advanced hedging strategies.<br /></div>
+                </div>
+                <div data-w-id="47676e07-1e8c-2596-150b-cf93ed1f16c1" class="w-layout-vflex customer-card">
+                    <section class="card-head">
+                        <h3 class="heading-3"><strong class="heading-3 black-text-color">Peg Arbitrage</strong>
+                        </h3><img src="images/68c3c69b6bad7667f9b6e4ae_Icon-8.svg" loading="eager" width="30"
+                            height="30" alt="" class="abstract-icon" />
+                    </section>
+                    <div class="body-text-14 gray-text-color customers">Automated bots maintain price stability while
+                        capturing profit from inefficiencies.<br /></div>
+                </div>
+            </section>
+        </section>
+        <section class="section">
+            <div class="head-tag">
+                <h2 class="heading-2 gradient-heading blur-in">The Quintes Engine: From Deposit to Yield</h2>
+                <div class="tag">
+                    <div class="tag-text white-text-color">Solutions</div>
+                </div>
+            </div>
+            <section class="solutions-block">
+                <div id="w-node-_95695c0d-c4c7-fd4d-1919-caaefba1b9a5-afdd170b"
+                    class="body-text-14 black-text-color max-w-300">We don't just stake your tokens; we engineer value.
+                    Our protocol automates complex hedging strategies to turn your static assets into a powerful,
+                    appreciating instrument.<br /></div>
+                <div id="w-node-_95695c0d-c4c7-fd4d-1919-caaefba1b9a8-afdd170b" class="solutions-cards">
+                    <div data-w-id="95695c0d-c4c7-fd4d-1919-caaefba1b9a9"
+                        style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        class="solutions-card">
+                        <div class="solutions-card-head">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" style="margin-top: 5px;">
+                                <path
+                                    d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                                    stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M12 6V12L16 14" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                            <div class="heading-3 white-text-color">1. Deposit & Mint</div>
+                        </div>
+                        <p class="bodt-text-20 gray-text-color">You deposit BTC, ETH, or Stablecoins into the protocol
+                            smart contracts. In return, you mint QNT, receiving immediate liquid exposure to our
+                            engineered growth token.</p>
+                    </div>
+                    <div data-w-id="95695c0d-c4c7-fd4d-1919-caaefba1b9b0"
+                        style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        class="solutions-card">
+                        <div class="solutions-card-head">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" style="margin-top: 5px;">
+                                <path
+                                    d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                                    stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M12 16V12" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M12 8H12.01" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                            <div class="heading-3 white-text-color">2. Collateral Deployment</div>
+                        </div>
+                        <p class="bodt-text-20 gray-text-color">Your assets don't sit idle. The protocol securely
+                            deploys them into Delta-Neutral strategies via institutional custodians (Fireblocks),
+                            generating real yield from market volatility without directional risk.</p>
+                    </div>
+                    <div data-w-id="95695c0d-c4c7-fd4d-1919-caaefba1b9b7"
+                        style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        class="solutions-card">
+                        <div class="solutions-card-head">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" style="margin-top: 5px;">
+                                <path d="M23 6L13.5 15.5L8.5 10.5L1 18" stroke="#FFFFFF" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M17 6H23V12" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                            <div class="heading-3 white-text-color">3. Automated Compounding</div>
+                        </div>
+                        <p class="bodt-text-20 gray-text-color">The yield generated is used to buy back and burn QNT or
+                            increase the collateral reserve. This mechanism forces the price of QNT to rise consistently
+                            relative to the collateral, targeting ~33% APY.</p>
+                    </div>
+                    <div data-w-id="95695c0d-c4c7-fd4d-1919-caaefba1b9be"
+                        style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        class="solutions-card">
+                        <div class="solutions-card-head">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" style="margin-top: 5px;">
+                                <path
+                                    d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                                    stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M2 12H22" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path
+                                    d="M12 2C14.5013 4.73835 15.9228 8.29203 16 12C15.9228 15.708 14.5013 19.2616 12 22C9.49872 19.2616 8.07725 15.708 8 12C8.07725 8.29203 9.49872 4.73835 12 2Z"
+                                    stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <div class="heading-3 white-text-color">4. Peg Stability & Arbitrage</div>
+                        </div>
+                        <p class="bodt-text-20 gray-text-color">Our PegKeepers and arbitrage bots monitor the price
+                            24/7. If QNT deviates from its target growth trajectory, the system automatically rebalances
+                            to restore the price.</p>
+                    </div>
+                    <div data-w-id="95695c0d-c4c7-fd4d-1919-caaefba1b9c5"
+                        style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        class="solutions-card">
+                        <div class="solutions-card-head">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" style="margin-top: 5px;">
+                                <path
+                                    d="M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9"
+                                    stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M16 17L21 12L16 7" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M21 12H9" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                            <div class="heading-3 white-text-color">5. Redemption & Exit</div>
+                        </div>
+                        <p class="bodt-text-20 gray-text-color">Need liquidity? You can sell QNT on the open market or
+                            redeem it directly against the collateral treasury at any time, ensuring you always have
+                            access to your funds.</p>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+
+        <section id="Ecosystem" class="section">
+            <div class="head-tag">
+                <div class="tag">
+                    <div class="tag-text white-text-color">Cases</div>
+                </div>
+                <h2 id="Cases" class="heading-2 gradient-heading blur-in">Latest Insights</h2>
+            </div>
+
+            <style>
+                /* Premium Hover Effects for Latest Insights Cards */
+                .case-block {
+                    position: relative;
+                    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                    border-radius: 12px;
+                    overflow: hidden;
+                }
+
+                .case-block::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    border-radius: 12px;
+                    padding: 2px;
+                    background: linear-gradient(135deg, transparent, transparent);
+                    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                    -webkit-mask-composite: xor;
+                    mask-composite: exclude;
+                    opacity: 0;
+                    transition: all 0.4s ease;
+                    pointer-events: none;
+                    z-index: 1;
+                }
+
+                .case-block:hover {
+                    transform: translateY(-12px) scale(1.02);
+                    box-shadow:
+                        0 25px 50px -12px rgba(0, 255, 255, 0.25),
+                        0 0 0 1px rgba(0, 255, 255, 0.1),
+                        0 0 60px -15px rgba(0, 255, 255, 0.4);
+                }
+
+                .case-block:hover::before {
+                    background: linear-gradient(135deg, #00FFFF, #00FF88, #00FFFF);
+                    opacity: 1;
+                }
+
+                /* Card inner container hover effect */
+                .case-block>div:first-child {
+                    transition: all 0.4s ease;
+                    position: relative;
+                    overflow: hidden;
+                }
+
+                .case-block>div:first-child::after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: -100%;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(90deg,
+                            transparent,
+                            rgba(255, 255, 255, 0.1),
+                            transparent);
+                    transition: left 0.6s ease;
+                }
+
+                .case-block:hover>div:first-child::after {
+                    left: 100%;
+                }
+
+                /* Logo animation on hover */
+                .case-block img {
+                    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                    filter: drop-shadow(0 0 0 transparent);
+                }
+
+                .case-block:hover img {
+                    transform: scale(1.15) rotate(10deg);
+                    filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.6));
+                }
+
+                /* Text glow on hover */
+                .case-block .heading-3 {
+                    transition: all 0.3s ease;
+                }
+
+                .case-block:hover .heading-3 {
+                    color: #ffffff !important;
+                    text-shadow: 0 0 15px rgba(0, 255, 255, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3);
+                }
+
+                /* Description fade effect */
+                .case-block .body-text-14 {
+                    transition: all 0.3s ease;
+                }
+
+                .case-block:hover .body-text-14 {
+                    color: #aaaaaa !important;
+                }
+
+                /* Staggered animation delay for each card */
+                .cases-block .case-block:nth-child(1) {
+                    transition-delay: 0s;
+                }
+
+                .cases-block .case-block:nth-child(2) {
+                    transition-delay: 0.05s;
+                }
+
+                .cases-block .case-block:nth-child(3) {
+                    transition-delay: 0.1s;
+                }
+
+                .cases-block .case-block:nth-child(4) {
+                    transition-delay: 0.15s;
+                }
+
+                /* Pulse animation for the card background */
+                @keyframes cardPulse {
+
+                    0%,
+                    100% {
+                        box-shadow: 0 0 0 0 rgba(0, 255, 255, 0);
+                    }
+
+                    50% {
+                        box-shadow: 0 0 30px 5px rgba(0, 255, 255, 0.1);
+                    }
+                }
+
+                .case-block:hover {
+                    animation: cardPulse 2s ease-in-out infinite;
+                }
+            </style>
+
+            <section class="cases-block">
+                <a href="https://paragraph.com/@quintes" target="_blank"
+                    id="w-node-a6ada26a-fef2-395f-76f1-b888a00340b1-afdd170b"
+                    data-w-id="a6ada26a-fef2-395f-76f1-b888a00340b1"
+                    style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:1; text-decoration: none;"
+                    class="case-block">
+                    <div
+                        style="background: #0D1117; display: flex; align-items: center; justify-content: center; height: 200px; border-radius: 10px; margin-bottom: 20px;">
+                        <img src="https://pub-731cbf0e109a4a5fbffae6de248ddd3a.r2.dev/Vector.svg" alt="Quintes Logo"
+                            style="width: 80px; height: 80px; opacity: 0.8;">
+                    </div>
+                    <div class="case-content">
+                        <h3 class="heading-3 black-text-color max-w-260 case-text-right-margin">Understanding the 200%
+                            Collateral Ratio</h3>
+                        <div class="body-text-14 gray-text-color max-w-600">Deep dive into how our Automated Proof of
+                            Collateral (APoC) ensures stability and solvency.</div>
+                    </div>
+                </a>
+                <a href="https://paragraph.com/@quintes" target="_blank"
+                    id="w-node-_9c6a078a-73fb-c256-7973-647badefaef6-afdd170b"
+                    data-w-id="9c6a078a-73fb-c256-7973-647badefaef6"
+                    style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:1; text-decoration: none;"
+                    class="case-block">
+                    <div
+                        style="background: #0D1117; display: flex; align-items: center; justify-content: center; height: 200px; border-radius: 10px; margin-bottom: 20px;">
+                        <img src="https://pub-731cbf0e109a4a5fbffae6de248ddd3a.r2.dev/Vector.svg" alt="Quintes Logo"
+                            style="width: 80px; height: 80px; opacity: 0.8;">
+                    </div>
+                    <div class="case-content">
+                        <h3 class="heading-3 black-text-color max-w-260 case-text-right-margin">Q4 2025 Roadmap Update
+                        </h3>
+                        <div class="body-text-14 gray-text-color max-w-600">Explore our upcoming milestones, from
+                            mainnet launch to multi-chain expansion.</div>
+                    </div>
+                </a>
+                <a href="https://paragraph.com/@quintes" target="_blank"
+                    id="w-node-c57b8545-80eb-0274-08b3-1e0747372898-afdd170b"
+                    data-w-id="c57b8545-80eb-0274-08b3-1e0747372898"
+                    style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:1; text-decoration: none;"
+                    class="case-block">
+                    <div
+                        style="background: #0D1117; display: flex; align-items: center; justify-content: center; height: 200px; border-radius: 10px; margin-bottom: 20px;">
+                        <img src="https://pub-731cbf0e109a4a5fbffae6de248ddd3a.r2.dev/Vector.svg" alt="Quintes Logo"
+                            style="width: 80px; height: 80px; opacity: 0.8;">
+                    </div>
+                    <div class="case-content">
+                        <h3 class="heading-3 black-text-color case-text-right-margin">Security Audit Report by Certik
+                        </h3>
+                        <div class="body-text-14 gray-text-color max-w-600">Transparency first. Review the full details
+                            of our smart contract security audit.</div>
+                    </div>
+                </a>
+                <a href="https://paragraph.com/@quintes" target="_blank"
+                    id="w-node-_070d56b2-829c-ab24-de5b-961bc51c6b75-afdd170b"
+                    data-w-id="070d56b2-829c-ab24-de5b-961bc51c6b75"
+                    style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:1; text-decoration: none;"
+                    class="case-block">
+                    <div
+                        style="background: #0D1117; display: flex; align-items: center; justify-content: center; height: 200px; border-radius: 10px; margin-bottom: 20px;">
+                        <img src="https://pub-731cbf0e109a4a5fbffae6de248ddd3a.r2.dev/Vector.svg" alt="Quintes Logo"
+                            style="width: 80px; height: 80px; opacity: 0.8;">
+                    </div>
+                    <div class="case-content">
+                        <h3 class="heading-3 black-text-color max-w-260 case-text-right-margin">Yield Strategies
+                            Explained</h3>
+                        <div class="body-text-14 gray-text-color max-w-600">How we generate sustainable, market-neutral
+                            yield using proven strategies.</div>
+                    </div>
+                </a>
+
+    </div>
+    </section>
+    </section>
+
+    <section id="Protocol" class="protocol-section">
+        <!-- B&W Video Background -->
+        <div class="protocol-video-wrapper">
+            <video autoplay loop muted playsinline class="protocol-bg-video">
+                <source src="https://pub-731cbf0e109a4a5fbffae6de248ddd3a.r2.dev/quintes%20ed.mp4" type="video/mp4">
+            </video>
+            <div class="protocol-overlay"></div>
+        </div>
+
+        <style>
+            .protocol-section {
+                position: relative;
+                padding: 100px 20px;
+                min-height: 100vh;
+                overflow: hidden;
+                background: #0a0a0a;
+            }
+
+            .protocol-video-wrapper {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 0;
+            }
+
+            .protocol-bg-video {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                filter: grayscale(100%) brightness(0.4);
+            }
+
+            .protocol-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(180deg,
+                        rgba(10, 10, 10, 0.8) 0%,
+                        rgba(10, 10, 10, 0.6) 50%,
+                        rgba(10, 10, 10, 0.9) 100%);
+            }
+
+            .protocol-content {
+                position: relative;
+                z-index: 1;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            .protocol-header {
+                text-align: center;
+                margin-bottom: 60px;
+            }
+
+            .protocol-tagline {
+                display: inline-block;
+                padding: 8px 20px;
+                background: rgba(0, 255, 255, 0.1);
+                border: 1px solid rgba(0, 255, 255, 0.3);
+                border-radius: 50px;
+                color: #00FFFF;
+                font-size: 12px;
+                font-weight: 600;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                margin-bottom: 20px;
+            }
+
+            .protocol-title {
+                font-size: clamp(32px, 5vw, 48px);
+                font-weight: 700;
+                color: #fff;
+                margin: 0 0 20px;
+                line-height: 1.2;
+            }
+
+            .protocol-subtitle {
+                max-width: 700px;
+                margin: 0 auto;
+                color: rgba(255, 255, 255, 0.7);
+                font-size: 18px;
+                font-weight: 300;
+                line-height: 1.7;
+            }
+
+            .protocol-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+                margin-top: 60px;
+            }
+
+            .protocol-card {
+                background: rgba(255, 255, 255, 0.03);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                border-radius: 20px;
+                padding: 35px;
+                backdrop-filter: blur(10px);
+                transition: all 0.3s ease;
+            }
+
+            .protocol-card:hover {
+                background: rgba(255, 255, 255, 0.06);
+                border-color: rgba(0, 255, 255, 0.2);
+                transform: translateY(-5px);
+            }
+
+            .protocol-card-number {
+                font-size: 14px;
+                color: #00FFFF;
+                font-weight: 600;
+                letter-spacing: 1px;
+                margin-bottom: 12px;
+            }
+
+            .protocol-card h3 {
+                font-size: 20px;
+                font-weight: 600;
+                color: #fff;
+                margin: 0 0 12px;
+            }
+
+            .protocol-card p {
+                color: rgba(255, 255, 255, 0.6);
+                font-size: 14px;
+                line-height: 1.7;
+                margin: 0;
+            }
+
+            /* Performance Comparison */
+            .performance-section {
+                margin-top: 80px;
+                text-align: center;
+                font-family: 'Space Mono', monospace;
+            }
+
+            .performance-title {
+                font-size: 24px;
+                font-weight: 600;
+                color: #fff;
+                margin-bottom: 40px;
+            }
+
+            .performance-grid {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+
+            .performance-item {
+                background: rgba(255, 255, 255, 0.03);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                border-radius: 16px;
+                padding: 25px 30px;
+                min-width: 130px;
+            }
+
+            .performance-item.qnt {
+                border-color: rgba(255, 255, 255, 0.2);
+                background: rgba(255, 255, 255, 0.05);
+            }
+
+            .performance-asset {
+                font-size: 12px;
+                color: rgba(255, 255, 255, 0.5);
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                margin-bottom: 8px;
+                font-family: 'Space Mono', monospace;
+            }
+
+            .performance-value {
+                font-size: 28px;
+                font-weight: 700;
+                font-family: 'Space Mono', monospace;
+            }
+
+            .performance-value.positive {
+                color: #fff;
+            }
+
+            .performance-value.negative {
+                color: #fff;
+            }
+
+            .performance-value.neutral {
+                color: #fff;
+            }
+
+            .performance-value.qnt-value {
+                color: #fff;
+            }
+
+            .performance-period {
+                font-size: 11px;
+                color: rgba(255, 255, 255, 0.4);
+                margin-top: 5px;
+                font-family: 'Space Mono', monospace;
+            }
+
+            @media (max-width: 768px) {
+                .protocol-section {
+                    padding: 60px 20px;
+                }
+
+                .protocol-grid {
+                    grid-template-columns: 1fr;
+                    gap: 20px;
+                }
+
+                .protocol-card {
+                    padding: 25px;
+                }
+
+                .performance-grid {
+                    gap: 10px;
+                }
+
+                .performance-item {
+                    padding: 15px 20px;
+                    min-width: 100px;
+                }
+
+                .performance-value {
+                    font-size: 22px;
+                }
+            }
+        </style>
+
+        <div class="protocol-content">
+            <div class="protocol-header">
+                <div class="protocol-tagline">The Quintes Engine</div>
+                <h2 class="protocol-title">Your Assets, Amplified.<br>A Simple Way to Grow Your Crypto.</h2>
+                <p class="protocol-subtitle">
+                    Quintes turns your USDC, BTC, or ETH deposits into QNT—a token engineered for steady growth
+                    targeting up to 33% annually, like a reliable, high-yield savings plan.
+                </p>
+            </div>
+
+            <div class="protocol-grid">
+                <div class="protocol-card">
+                    <div class="protocol-card-number">
+                        <svg width="40" height="40" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M22.7012 13.5565L22.7929 13.6429C23.0135 13.8812 23.2165 14.1388 23.4194 14.4176C23.9894 15.2365 24.3582 16.1629 24.1924 17.13V17.1494C24.1924 17.1724 24.1553 17.1935 24.1553 17.2165V17.2782L24.1376 17.3012C24.1376 17.3453 24.1376 17.3647 24.12 17.3876C23.8994 18.2259 23.3647 18.8276 22.6659 19.2759V19.26V19.2829V19.2776C23.0347 20.0065 23.1812 20.7759 22.9606 21.5682C22.5371 23.1847 20.8076 23.9806 19.3165 24.3247C17.1635 24.8206 14.6965 24.6053 12.5435 24.0865C10.3535 23.4406 7.97824 22.2988 6.34059 20.6824L6.10059 20.4247L6.72706 19.8847L8.93647 17.6665C8.51294 17.3841 8.10882 17.0629 7.74 16.6959C7.61118 16.5882 7.48235 16.4594 7.37118 16.3288L7.26 16.2441C7.03941 16.0059 6.83647 15.7465 6.63353 15.4676C6.04235 14.6541 5.71059 13.7241 5.85882 12.7571L5.87647 12.7376V12.6724C5.87647 12.6494 5.89412 12.6282 5.89412 12.6088V12.5859C5.89412 12.5629 5.93118 12.5241 5.93118 12.5012C6.13412 11.6824 6.70412 11.0576 7.38529 10.6271C7.03588 9.89471 6.87 9.12 7.09059 8.32235C7.51412 6.70588 9.24529 5.90824 10.7541 5.56412C12.9088 5.08941 15.3565 5.28529 17.5094 5.80235C19.6994 6.44647 22.0747 7.59 23.7124 9.22588L23.9524 9.46412L23.3259 10.0024L21.0988 12.2224C21.54 12.5241 21.9459 12.8471 22.3129 13.1912C22.4418 13.3006 22.5706 13.4294 22.6994 13.5582L22.7012 13.5565ZM8.63824 20.43C9.94588 21.3335 11.5641 22.0024 12.9829 22.4312C14.7494 22.8424 16.8476 23.0771 18.6529 22.7771C19.5547 22.6059 21.0265 22.1753 21.3035 21.1394C21.4147 20.73 21.3212 20.3418 21.1376 19.9553C20.9171 20.0418 20.6965 20.0841 20.4935 20.1494C18.3406 20.6241 15.8541 20.4318 13.7206 19.9112C13.1135 19.74 12.4871 19.5247 11.8976 19.2653C11.4 19.0712 10.9218 18.8576 10.4435 18.6212L8.64 20.43H8.63824ZM7.64471 12.7818V12.8047C7.62706 12.8188 7.62706 12.8347 7.62706 12.8488C7.62706 12.8718 7.60941 12.8929 7.60941 12.8929V12.9547C7.57235 12.9547 7.57235 12.9776 7.57235 12.9776V13.0412H7.55471V13.0853C7.53706 13.1929 7.53706 13.3235 7.55471 13.4294C7.57235 13.7735 7.72059 14.1194 7.92353 14.4194L7.94118 14.4635C8.29059 15.0459 8.84294 15.6053 9.65294 16.1418C10.9782 17.07 12.6159 17.7582 14.1265 18.21C14.55 18.3176 14.9912 18.4253 15.4341 18.51C16.8882 18.7482 18.4341 18.8347 19.8141 18.5753C19.8688 18.5753 19.9429 18.5524 19.9976 18.5524C19.9059 18.4659 19.8141 18.3812 19.7029 18.2929C18.3035 17.1741 16.4453 16.3553 14.7512 15.8594C12.6335 15.1253 10.7206 14.0506 8.98941 12.6265C8.78647 12.4324 8.56588 12.1959 8.34529 11.9806C8.05059 12.1747 7.79294 12.4341 7.64647 12.7782L7.64471 12.7818ZM21.4306 9.46588C20.0876 8.56235 18.4853 7.89353 17.0506 7.46118C15.2841 7.05176 13.2212 6.81529 11.4176 7.13824C10.4788 7.29 9.04235 7.72059 8.76706 8.75471C8.65588 9.16588 8.74941 9.57353 8.91353 9.94059C9.13412 9.85235 9.33706 9.81 9.55765 9.74471C11.7106 9.27 14.1971 9.46412 16.35 9.98118C16.9394 10.1541 17.5465 10.3676 18.1535 10.6271C18.6512 10.8212 19.1471 11.0365 19.59 11.2959L21.4306 9.46412V9.46588ZM22.1118 15.4553C21.78 14.8729 21.1906 14.3135 20.4 13.7735C19.0747 12.8259 17.4371 12.1376 15.9265 11.6841C15.5029 11.5747 15.0424 11.4688 14.6012 11.3806C13.1647 11.1459 11.6188 11.0806 10.2565 11.3188C10.1824 11.3188 10.11 11.3418 10.0359 11.3418C10.1471 11.4282 10.2565 11.5147 10.3482 11.5994C11.7282 12.72 13.5882 13.5371 15.2806 14.0347C17.3982 14.7671 19.3112 15.8665 21.0424 17.2676C21.2629 17.4794 21.4835 17.6912 21.7041 17.9047C21.6865 17.9065 21.6865 17.91 21.6865 17.9118H21.7041V17.9047C22.0165 17.7106 22.2741 17.4582 22.3853 17.1159H22.4224V17.0541H22.44V17.01C22.4576 16.9871 22.4576 16.9659 22.4576 16.9659V16.9218L22.4753 16.8794V16.8353C22.4929 16.7047 22.4929 16.5759 22.4929 16.4682C22.4559 16.1224 22.3271 15.7782 22.1241 15.4765L22.1065 15.4571V15.4606L22.1118 15.4553Z"
+                                fill="#FFFFFF" />
+                        </svg>
+                    </div>
+                    <h3>How QNT Achieves Consistent Growth</h3>
+                    <p>
+                        QNT is a synthetic token tied to a target price programmed to rise steadily.
+                        Your collateral is deployed into Shariah-compliant hedging strategies
+                        designed to generate sustainable returns.
+                    </p>
+                </div>
+                <div class="protocol-card">
+                    <div class="protocol-card-number">
+                        <svg width="40" height="40" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M11.9488 5.48294C12.6935 5.38412 13.7841 6.58588 14.1335 7.19471C16.4876 11.2888 12.5647 16.0306 8.12294 14.4741C7.38353 14.2165 5.54647 12.9741 5.47235 12.1659C5.40882 11.4741 6.88412 9.15882 7.38176 8.56765C8.24824 7.53882 10.6218 5.65941 11.9488 5.48294Z"
+                                fill="#FFFFFF" />
+                            <path
+                                d="M17.8853 5.47941C18.6441 5.34 20.8906 6.77471 21.5259 7.30059C22.6076 8.19529 23.8518 9.80471 24.3565 11.1159C24.75 12.1359 24.8718 12.1712 24.15 13.0253C20.61 17.2165 13.7206 13.3341 15.6918 7.96412C15.9741 7.19471 17.0435 5.63471 17.8853 5.47941Z"
+                                fill="#FFFFFF" />
+                            <path
+                                d="M19.4435 15.3918C20.7053 15.2188 21.8718 15.3865 22.9712 16.0341C23.5059 16.35 24.7429 17.4388 24.6847 18.0759C24.5841 19.1771 22.7947 21.6406 21.9565 22.4276C21.36 22.9888 18.6071 24.81 17.8853 24.66C17.6012 24.6 16.6447 23.6859 16.4329 23.4176C14.1618 20.5447 15.7853 15.8912 19.4435 15.3918Z"
+                                fill="#FFFFFF" />
+                            <path
+                                d="M8.83235 15.39C14.52 14.5006 17.0718 21.6865 12.3 24.66C10.1894 24.1853 8.15824 22.6571 6.91235 20.9171C6.50294 20.3453 5.39647 18.5029 5.49706 17.8606C5.65588 16.8494 7.86706 15.5418 8.83059 15.39H8.83235Z"
+                                fill="#FFFFFF" />
+                        </svg>
+                    </div>
+                    <h3>Automated Proof of Collateral</h3>
+                    <p>
+                        For every $1 of QNT, we maintain at least $2 of collateral. Over-collateralization
+                        from yield ensures your assets are always backed. Reserve backstops guarantee full
+                        redeemability.
+                    </p>
+                </div>
+                <div class="protocol-card">
+                    <div class="protocol-card-number">
+                        <svg width="40" height="40" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M22.6553 9.91235C22.8882 9.27 23.3082 8.60824 23.6171 7.99941C23.8429 7.55647 24.4447 6.50471 23.5465 6.63882C22.9182 6.73412 21.7712 7.23177 20.9506 7.22118C19.7082 7.26706 18.7676 5.91529 17.8182 5.49C17.43 5.37353 17.3594 5.81647 17.3065 6.13765C17.1247 7.65176 17.0824 9.46059 15.1147 9.53824C12.9388 9.58412 12.9124 7.71176 12.7059 6.06882C12.6459 5.79 12.6141 5.48118 12.3141 5.46882C12.1888 5.47765 12.0653 5.54118 11.9524 5.61176C11.3382 6 10.4612 6.93529 9.61059 7.15235C8.36647 7.57941 5.95588 5.99824 6 6.93529C6.04765 7.44176 6.49235 8.13529 6.76941 8.67706C8.05588 10.8459 7.51235 11.5041 6.41824 13.5459C6.17294 14.0206 5.59412 15.1006 6.52059 14.9082C7.51412 14.7212 8.66471 14.0947 9.69529 14.4194C10.7488 14.7688 11.4124 16.0218 11.5482 17.0947C11.6435 17.8465 11.3841 18.6053 10.98 19.2229C10.62 19.8265 10.0535 20.3559 9.76412 20.9576C9.57706 21.3635 10.0747 21.4729 10.3782 21.5153C10.9429 21.6088 11.79 21.6388 12.4165 21.8594C13.4982 22.1841 13.9641 23.3982 14.5024 24.2576C14.8535 24.8135 15.0988 24.84 15.4588 24.2771C16.1471 23.1618 16.5565 21.9706 18.0424 21.7376C18.6265 21.6141 19.4294 21.5841 19.8371 21.48C20.1247 21.42 20.3735 21.2576 20.2006 20.9347C20.0365 20.6012 19.7594 20.2994 19.5053 19.9606C18.93 19.2035 18.3565 18.3265 18.4218 17.3241C18.4659 16.4859 18.8629 15.6 19.4506 14.9824C20.9418 13.2724 23.9629 15.7182 24.0141 14.6347C23.9947 14.2976 23.8306 13.9994 23.6541 13.6394C23.3276 12.9759 22.8512 12.2418 22.62 11.5359C22.4488 11.0082 22.4629 10.44 22.6518 9.91765V9.91059L22.6553 9.91235ZM17.4776 13.5018C17.4229 14.5747 16.7382 15.9724 15.7747 16.5318C14.1582 17.3947 12.8965 15.3776 12.6053 13.9835C12.48 13.3835 12.5276 12.7147 12.9794 12.2735C13.5724 11.7018 14.5376 11.5818 15.3476 11.6312C16.4982 11.7212 17.5429 12.2312 17.4776 13.4912V13.5018Z"
+                                fill="#FFFFFF" />
+                        </svg>
+                    </div>
+                    <h3>Automated Peg Stability</h3>
+                    <p>
+                        PegKeepers and arbitrage opportunities ensure QNT's market price stays
+                        aligned with its rising target, maintaining stable, predictable value growth.
+                    </p>
+                </div>
+                <div class="protocol-card">
+                    <div class="protocol-card-number">
+                        <svg width="40" height="40" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M16.6694 14.5871C16.0571 13.9571 15.5241 13.2318 15.0918 12.4659C15.0371 12.3812 14.9929 12.2982 14.9524 12.2135C14.9118 12.2982 14.8535 12.3812 14.8129 12.4659C13.0535 15.6053 9.67765 17.7265 5.82353 17.7265V15.3671C10.2071 15.3671 13.7665 11.8094 13.7665 7.41353H16.1259C16.1259 9.21176 16.7259 10.86 17.7159 12.1853C19.1665 14.1265 21.4835 15.3671 24.0812 15.3671V17.7265C21.1782 17.7265 18.54 16.5247 16.6694 14.5871Z"
+                                fill="#FFFFFF" />
+                        </svg>
+                    </div>
+                    <h3>Security & Transparency</h3>
+                    <p>
+                        Institutional-grade custody via Fireblocks and Ceffu. Rigorous audits,
+                        multisig governance, timelocks, and continuous monitoring protect every deposit.
+                    </p>
+                </div>
+            </div>
+
+            <div class="performance-section">
+                <h3 class="performance-title">Normalized Performance Comparison</h3>
+                <div class="performance-grid">
+                    <div class="performance-item qnt">
+                        <div class="performance-asset">QNT</div>
+                        <div class="performance-value qnt-value">+33%</div>
+                        <div class="performance-period">Target Annual</div>
+                    </div>
+                    <div class="performance-item">
+                        <div class="performance-asset">ETH</div>
+                        <div class="performance-value positive">+18%</div>
+                        <div class="performance-period">Avg. Annual</div>
+                    </div>
+                    <div class="performance-item">
+                        <div class="performance-asset">BTC</div>
+                        <div class="performance-value positive">+25%</div>
+                        <div class="performance-period">Avg. Annual</div>
+                    </div>
+                    <div class="performance-item">
+                        <div class="performance-asset">S&P 500</div>
+                        <div class="performance-value neutral">+10%</div>
+                        <div class="performance-period">Avg. Annual</div>
+                    </div>
+                    <div class="performance-item">
+                        <div class="performance-asset">Gold</div>
+                        <div class="performance-value neutral">+7%</div>
+                        <div class="performance-period">Avg. Annual</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="head-tag">
+            <div class="tag">
+                <div class="tag-text white-text-color">FAQ</div>
+            </div>
+            <h2 class="heading-2 black-text-color gradient-heading blur-in">Your Quintes Queries, Answered.</h2>
+        </div>
+        <div class="faq">
+            <div id="w-node-a8614331-62cf-289d-b257-e504f1bcca62-afdd170b" class="faq-content">
+                <div data-hover="false" data-delay="200" id="w-node-c3c3bfba-7f97-249b-18bf-13dddee94293-afdd170b"
+                    data-w-id="c3c3bfba-7f97-249b-18bf-13dddee94293" class="dropdown w-dropdown">
+                    <div class="dropdown-toggle w-dropdown-toggle">
+                        <div class="icon w-icon-dropdown-toggle"></div><img
+                            style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)"
+                            loading="eager" alt="" src="images/68c58a2259cd3644fa995999_Group%202087332177.svg"
+                            class="accordion-icon" />
+                        <p class="bodt-text-20 black-text-color max-w-100">How do I earn with Quintes using my BTC,
+                            ETH, or Stablecoins?</p>
+                    </div>
+                    <nav style="height:0px;opacity:0" class="dropdown-list w-dropdown-list">
+                        <div class="dropdown-list-content">
+                            <div class="body-text-14 black-text-color accord-text">You securely deposit your assets
+                                to mint QNT, our innovative yield-bearing collateralized asset. Your deposited
+                                collateral is
+                                then partially deployed into sophisticated, Shariah-compliant trading strategies
+                                that generate real revenue. You benefit from QNT's engineered value growth and can
+                                earn additional QTS rewards for participating.</div>
+                        </div>
+                    </nav>
+                </div>
+                <div data-hover="false" data-delay="200" id="w-node-_9682b6f3-d588-37d0-f66a-acb855943f42-afdd170b"
+                    data-w-id="9682b6f3-d588-37d0-f66a-acb855943f42" class="dropdown w-dropdown">
+                    <div class="dropdown-toggle w-dropdown-toggle">
+                        <div class="icon w-icon-dropdown-toggle"></div><img
+                            style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)"
+                            loading="eager" alt="" src="images/68c58a2259cd3644fa995999_Group%202087332177.svg"
+                            class="accordion-icon" />
+                        <p class="bodt-text-20 black-text-color max-w-100">What is QNT?</p>
+                    </div>
+                    <nav style="height:0px;opacity:0" class="dropdown-list w-dropdown-list">
+                        <div class="body-text-14 black-text-color accord-text">QNT is a yield-bearing, collateralized
+                            asset
+                            you mint against your deposited collateral. It's overcollateralized and engineered for
+                            consistent value growth through unique, patented cryptoeconomic mechanisms, supported by
+                            yields from deployed collateral. The goal is to provide a reliable way for your crypto
+                            holdings to grow steadily.</div>
+                    </nav>
+                </div>
+                <div data-hover="false" data-delay="200" data-w-id="456132cf-6d3b-2a73-7936-9a4e0cfe525f"
+                    class="dropdown w-dropdown">
+                    <div class="dropdown-toggle w-dropdown-toggle">
+                        <div class="icon w-icon-dropdown-toggle"></div><img
+                            style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)"
+                            loading="eager" alt="" src="images/68c58a2259cd3644fa995999_Group%202087332177.svg"
+                            class="accordion-icon" />
+                        <p class="bodt-text-20 black-text-color max-w-100">How does QNT achieve its consistent
+                            growth?</p>
+                    </div>
+                    <nav style="height:0px;opacity:0" class="dropdown-list w-dropdown-list">
+                        <div class="body-text-14 black-text-color accord-text">QNT is a synthetic token tied to a
+                            target price that is programmed to rise steadily, aiming for significant annual growth.
+                            This is supported by profits from deploying user collateral into proven, market-neutral
+                            hedging strategies that increase the collateral's value. Automated "PegKeepers" and
+                            arbitrage ensure the market price stays aligned with this appreciating target.</div>
+                    </nav>
+                </div>
+                <div data-hover="false" data-delay="200" id="w-node-b1049ac6-52d0-e135-c284-ef3a12c17a68-afdd170b"
+                    data-w-id="b1049ac6-52d0-e135-c284-ef3a12c17a68" class="dropdown w-dropdown">
+                    <div class="dropdown-toggle w-dropdown-toggle">
+                        <div class="icon w-icon-dropdown-toggle"></div><img
+                            style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)"
+                            loading="eager" alt="" src="images/68c58a2259cd3644fa995999_Group%202087332177.svg"
+                            class="accordion-icon" />
+                        <p class="bodt-text-20 black-text-color max-w-100">Is my deposited collateral always safe?
+                        </p>
+                    </div>
+                    <nav style="height:0px;opacity:0" class="dropdown-list w-dropdown-list">
+                        <div class="body-text-14 black-text-color accord-text">Security is paramount. For every $1
+                            of QNT, we maintain at least $2 of collateral. If collateral values drop, automated
+                            partial liquidation restores this ratio. Additionally, reserve funds and our QTS
+                            treasury act as backstops. This Automated Proof of Collateral (APoC) system is designed
+                            to ensure QNT is always fully backed and redeemable.</div>
+                    </nav>
+                </div>
+            </div>
+            <div id="w-node-f876215c-652c-6362-58c7-55427d21582b-afdd170b" class="faq-content">
+                <div data-hover="false" data-delay="200" id="w-node-c5bad360-f718-b4a4-8a7d-aac4a1c31339-afdd170b"
+                    data-w-id="c5bad360-f718-b4a4-8a7d-aac4a1c31339" class="dropdown w-dropdown">
+                    <div class="dropdown-toggle w-dropdown-toggle">
+                        <div class="icon w-icon-dropdown-toggle"></div><img
+                            style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)"
+                            loading="eager" alt="" src="images/68c58a2259cd3644fa995999_Group%202087332177.svg"
+                            class="accordion-icon" />
+                        <p class="bodt-text-20 black-text-color max-w-100">How is Quintes Shariah-compliant?</p>
+                    </div>
+                    <nav style="height:0px;opacity:0" class="dropdown-list w-dropdown-list">
+                        <div class="body-text-14 black-text-color accord-text">Our trading strategies, investment
+                            policies, and mechanisms are reviewed by Shariah scholars to ensure they align with
+                            Islamic financial principles, avoiding interest (Riba) and excessive uncertainty
+                            (Gharar).</div>
+                    </nav>
+                </div>
+                <div data-hover="false" data-delay="200" id="w-node-_3d9ad785-8430-0f94-1b81-d4924ac5622e-afdd170b"
+                    data-w-id="3d9ad785-8430-0f94-1b81-d4924ac5622e" class="dropdown w-dropdown">
+                    <div class="dropdown-toggle w-dropdown-toggle">
+                        <div class="icon w-icon-dropdown-toggle"></div><img
+                            style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)"
+                            loading="eager" alt="" src="images/68c58a2259cd3644fa995999_Group%202087332177.svg"
+                            class="accordion-icon" />
+                        <p class="bodt-text-20 black-text-color max-w-100">How is Quintes different from past yield
+                            protocols like Luna/UST?</p>
+                    </div>
+                    <nav style="height:0px;opacity:0" class="dropdown-list w-dropdown-list">
+                        <div class="body-text-14 black-text-color accord-text">The difference is fundamental.
+                            Quintes is built on full 200% over-collateralization with diverse assets like BTC, ETH,
+                            and stablecoins. Luna/UST was an undercollateralized, algorithmic model reliant on its
+                            sister token's price. Our system is designed for long-term stability and solvency, a
+                            lesson learned from the failures of past protocols.</div>
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="quintes-footer">
+        <div class="footer-container">
+            <!-- Brand & Tagline -->
+            <div class="footer-brand">
+                <img src="https://pub-731cbf0e109a4a5fbffae6de248ddd3a.r2.dev/Vector.svg" alt="Quintes"
+                    class="footer-logo">
+                <span class="footer-tagline">Decentralized Confidential Communication</span>
+            </div>
+
+            <!-- Navigation Links -->
+            <ul class="footer-links">
+                <li><a href="#Features">Features</a></li>
+                <li><a href="#Ecosystem">Protocol</a></li>
+                <li><a href="https://quintes.gitbook.io/quintes/" target="_blank">Docs</a></li>
+                <li><a href="https://t.me/QuintesOfficial" target="_blank">Community</a></li>
+            </ul>
+
+            <!-- Social Icons -->
+            <div class="footer-socials">
+                <a href="https://twitter.com/QuintesProtocol" target="_blank"><img
+                        src="https://upload.wikimedia.org/wikipedia/commons/5/5a/X_icon_2.svg" class="social-icon"
+                        alt="X"></a>
+                <a href="https://t.me/QuintesOfficial" target="_blank"><img
+                        src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" class="social-icon"
+                        alt="Telegram"></a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div>&copy; 2025 Quintes Protocol</div>
+            <div style="display: flex; gap: 20px;">
+                <a href="/privacy">Privacy</a>
+                <a href="/terms">Terms</a>
+            </div>
+        </div>
+    </footer>
+    <div class="bottom-blur w-embed w-script">
+        <div class="progressive-blur-container">
+            <div class="layer" style="--blur: 1px; --start: 0%; --end: 20%;"></div>
+            <div class="layer" style="--blur: 3px; --start: 20%; --end: 40%;"></div>
+            <div class="layer" style="--blur: 6px; --start: 40%; --end: 60%;"></div>
+            <div class="layer" style="--blur: 10px; --start: 60%; --end: 100%;"></div>
+        </div>
+
+        <style>
+            .progressive-blur-container {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 100px;
+                pointer-events: none;
+                overflow: hidden;
+                z-index: 9999;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.4s ease-out;
+                transform: translateZ(0);
+
+            }
+
+            .progressive-blur-container.visible {
+                visibility: visible;
+            }
+
+            .layer {
+                position: absolute;
+                inset: 0;
+                backdrop-filter: blur(var(--blur));
+                -webkit-backdrop-filter: blur(var(--blur));
+                mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) var(--start), rgba(0, 0, 0, 1) var(--end));
+                -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) var(--start), rgba(0, 0, 0, 1) var(--end));
+                pointer-events: none;
+            }
+        </style>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const blurContainer = document.querySelector(".progressive-blur-container");
+
+                if (!blurContainer) {
+                    console.warn("Elrment .progressive-blur-container dont find");
+                    return;
+                }
+
+                const VIEWPORT_HEIGHT = window.innerHeight;
+                const HIDE_BEFORE_FOOTER = 100;
+                const FADE_RANGE = 100;
+
+
+                const SHOW_START = VIEWPORT_HEIGHT;
+                const SHOW_END = SHOW_START + FADE_RANGE;
+
+                function updateBlurVisibility() {
+                    const scrollTop = window.scrollY;
+                    const scrollBottom = scrollTop + window.innerHeight;
+                    const documentHeight = document.documentElement.scrollHeight;
+
+                    let opacity = 0;
+
+
+                    if (scrollBottom > SHOW_START) {
+                        if (scrollBottom < SHOW_END) {
+
+                            opacity = (scrollBottom - SHOW_START) / FADE_RANGE;
+                        } else {
+                            opacity = 1;
+                        }
+
+
+                        if (scrollBottom >= documentHeight - HIDE_BEFORE_FOOTER) {
+                            const fadeStart = documentHeight - HIDE_BEFORE_FOOTER - FADE_RANGE;
+                            const fadeEnd = documentHeight - HIDE_BEFORE_FOOTER;
+
+                            if (scrollBottom >= fadeStart) {
+                                const fadeOpacity = 1 - ((scrollBottom - fadeStart) / FADE_RANGE);
+                                opacity = Math.min(opacity, fadeOpacity);
+                            }
+                        }
+                    }
+
+
+
+                    opacity = Math.max(0, Math.min(1, opacity));
+
+
+                    blurContainer.style.opacity = opacity;
+                    if (opacity > 0) {
+                        blurContainer.classList.add("visible");
+                    } else {
+                        blurContainer.classList.remove("visible");
+                    }
+
+
+                }
+
+
+                updateBlurVisibility();
+
+
+                window.addEventListener("scroll", updateBlurVisibility);
+                window.addEventListener("resize", updateBlurVisibility);
+            });
+        </script>
+    </div>
+    </div>
+    <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=68bab3a2fb1b50c76a740e0e"
+        type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+        crossorigin="anonymous"></script>
+    <script src="js/webflow.630e4e4c.1564a33ca8fc58dc.js" type="text/javascript"></script>
+    <script src="js/gsap/gsap.min.js" type="text/javascript"></script>
+    <script src="js/gsap/ScrollTrigger.min.js" type="text/javascript"></script>
+
+
+    <!--Gradient for headings-->
+    <style>
+        .gradient-heading {
+            background: linear-gradient(104deg, #000 -9.1%, #B3B3B3 85.12%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            -webkit-font-smoothing: antialiased;
+
+            padding: 10px 0;
+            /* Vertical margins */
+        }
+    </style>
+
+
+    <!--Text animation. Appearance from blur-->
+    <script>
+        // Wait for page to load
+        document.addEventListener("DOMContentLoaded", function () {
+            console.log('Blur-in script loaded');
+            const elements = document.querySelectorAll('.blur-in');
+            console.log('Found blur-in elements:', elements.length);
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        console.log('Blur-in intersecting:', entry.target);
+                        entry.target.style.transition = 'opacity 1s ease, filter 1s ease';
+                        entry.target.style.opacity = 1;
+                        entry.target.style.filter = 'blur(0)';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            elements.forEach(el => {
+                // Preserve original styles
+                el.style.opacity = 0;
+                el.style.filter = 'blur(10px)';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'none'; // To avoid flashing on load
+                setTimeout(() => {
+                    el.style.transition = 'opacity 1s ease, filter 1s ease, transform 1s ease';
+                }, 50);
+
+                observer.observe(el);
+            });
+        });
+    </script>
+
+    <style>
+        /* Make sure animation works smoothly */
+        .blur-in {
+            transform-origin: center;
+            will-change: opacity, filter;
+        }
+    </style>
+
+
+
+
+    <style>
+        .fullscreen {
+            height: 100vh;
+            height: 100dvh;
+        }
+    </style>
+
+
+
+
+    <style>
+        /* Cookie banner visibility control */
+        .cookie-banner {
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
+        }
+
+        .cookie-banner.cookie-hidden {
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+        }
+    </style>
+
+    <script>
+        // Cookie consent handling script for Chinese 
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // Check if user has already given consent
+            function checkCookieConsent() {
+                return localStorage.getItem('cookieConsent') === 'accepted';
+            }
+
+            // Save user consent
+            function setCookieConsent() {
+                localStorage.setItem('cookieConsent', 'accepted');
+                localStorage.setItem('cookieConsentDate', new Date().toISOString());
+            }
+
+            // Hide cookie banner
+            function hideCookieBanner() {
+                const cookieBanner = document.querySelector('.cookie-banner'); // replace with your class
+                if (cookieBanner) {
+                    cookieBanner.classList.add('cookie-hidden');
+                }
+            }
+
+            // Show cookie banner
+            function showCookieBanner() {
+                const cookieBanner = document.querySelector('.cookie-banner'); // replace with your class
+                if (cookieBanner) {
+                    cookieBanner.classList.remove('cookie-hidden');
+                }
+            }
+
+            // Initialize on page load
+            if (checkCookieConsent()) {
+                hideCookieBanner();
+                // Enable analytics and tracking scripts here
+                enableAnalytics();
+            } else {
+                showCookieBanner();
+            }
+
+            // Handle accept button click
+            const acceptButton = document.getElementById('cookie-accept-btn'); // or use querySelector('.accept-cookies')
+            if (acceptButton) {
+                acceptButton.addEventListener('click', function () {
+                    setCookieConsent();
+                    hideCookieBanner();
+                    enableAnalytics();
+
+                    // Additional actions after consent
+                    console.log('User has accepted cookie usage');
+                });
+            }
+
+            // Function to enable analytics and tracking scripts after consent
+            function enableAnalytics() {
+                // Baidu Analytics (百度统计)
+                if (typeof _hmt !== 'undefined') {
+                    _hmt.push(['_setAutoPageview', true]);
+                }
+
+                // Tencent Analytics (腾讯分析)
+                if (typeof MtaH5 !== 'undefined') {
+                    // Enable Tencent tracking
+                }
+
+                // CNZZ Analytics (友盟+/CNZZ)
+                if (typeof cnzz_protocol !== 'undefined') {
+                    // Enable CNZZ tracking
+                }
+
+                // WeChat Mini Program Analytics (if applicable)
+                if (typeof wx !== 'undefined' && wx.reportAnalytics) {
+                    // Enable WeChat analytics
+                }
+
+                // Other Chinese analytics services
+                // Umeng Analytics, etc.
+            }
+        });
+
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('a[href^="#"]').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+
+                    if (targetElement) {
+                        e.preventDefault();
+                        e.stopPropagation();
+
+
+                        const offset = 120;
+
+                        window.scrollTo(window.scrollX, window.scrollY);
+
+                        const targetPosition = targetElement.offsetTop - offset;
+
+
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }, true);
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            const mobileMediaQuery = window.matchMedia('(max-width: 1200px)');
+
+            function handleMobileChange(e) {
+                if (e.matches) {
+
+                    gsap.globalTimeline.clear();
+                    gsap.set("*", { clearProps: "all" });
+                    gsap.defaults({ duration: 0 });
+                } else {
+
+                    gsap.defaults({ duration: 1 });
+                }
+            }
+
+
+            handleMobileChange(mobileMediaQuery);
+            mobileMediaQuery.addListener(handleMobileChange);
+
+            // Custom Animation for Local Presence Section
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Animate the colorful lines (grline-img)
+            gsap.to(".grline-img", {
+                y: -100, // Move up slightly
+                ease: "none",
+                scrollTrigger: {
+                    trigger: ".line-container",
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true
+                }
+            });
+
+            // Animate the cards appearing
+            gsap.utils.toArray(".local-presence-card").forEach((card, i) => {
+                gsap.from(card, {
+                    y: 50,
+                    opacity: 0,
+                    duration: 1,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 85%", // Trigger when top of card hits 85% of viewport
+                        toggleActions: "play none none reverse"
+                    }
+                });
+            });
+
+            // Navbar Scroll Interaction
+            ScrollTrigger.create({
+                start: "top -50",
+                onUpdate: (self) => {
+                    const logo = document.querySelector('.ux_logo_wrapper');
+                    const menu = document.querySelector('.ux_menu');
+                    if (self.scroll() > 50) {
+                        logo.classList.add('visible');
+                        menu.classList.add('expanded');
+                    } else {
+                        logo.classList.remove('visible');
+                        menu.classList.remove('expanded');
+                    }
+                }
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const protocolSection = document.getElementById('Protocol');
+            if (!protocolSection) return;
+
+            const scanLine = protocolSection.querySelector('.scan-line');
+            const revealElements = protocolSection.querySelectorAll('.blur-reveal');
+            const numberElements = protocolSection.querySelectorAll('.matrix-value');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Start Scan
+                        protocolSection.classList.add('scanning');
+
+                        // Reveal Elements Staggered
+                        revealElements.forEach((el, index) => {
+                            setTimeout(() => {
+                                el.classList.add('revealed');
+                            }, 500 + (index * 200));
+                        });
+
+                        // Start CountUp
+                        numberElements.forEach(el => {
+                            const targetStr = el.getAttribute('data-target');
+                            const target = parseFloat(targetStr);
+                            const isCurrency = el.innerText.includes('$');
+                            const isPercent = el.innerText.includes('%');
+
+                            animateValue(el, 0, target, 2000, isCurrency, isPercent);
+                        });
+
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            observer.observe(protocolSection);
+
+            function animateValue(obj, start, end, duration, isCurrency, isPercent) {
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    let value = progress * (end - start) + start;
+
+                    if (isCurrency) {
+                        obj.innerHTML = '$' + Math.floor(value).toLocaleString();
+                    } else if (isPercent) {
+                        obj.innerHTML = value.toFixed(3) + '%';
+                    } else {
+                        obj.innerHTML = Math.floor(value).toLocaleString();
+                    }
+
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    } else {
+                        if (isCurrency) obj.innerHTML = '$' + end.toLocaleString();
+                        else if (isPercent) obj.innerHTML = end + '%';
+                        else obj.innerHTML = end.toLocaleString();
+                    }
+                };
+                window.requestAnimationFrame(step);
+            }
+        });
+    </script>
+</body>
+
+</html>
